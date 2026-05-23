@@ -31,7 +31,7 @@
             MenuPanel = new Panel();
             BtnSales = new Button();
             BtnOrders = new Button();
-            BtnBack = new Button();
+            btnBack = new Button();
             pnlNav = new Panel();
             btnPayment = new Button();
             BtnProducts = new Button();
@@ -74,7 +74,7 @@
             MenuPanel.BorderStyle = BorderStyle.Fixed3D;
             MenuPanel.Controls.Add(BtnSales);
             MenuPanel.Controls.Add(BtnOrders);
-            MenuPanel.Controls.Add(BtnBack);
+            MenuPanel.Controls.Add(btnBack);
             MenuPanel.Controls.Add(pnlNav);
             MenuPanel.Controls.Add(btnPayment);
             MenuPanel.Controls.Add(BtnProducts);
@@ -114,20 +114,21 @@
             BtnOrders.Text = "ORDERS";
             BtnOrders.UseVisualStyleBackColor = false;
             // 
-            // BtnBack
+            // btnBack
             // 
-            BtnBack.BackColor = Color.SaddleBrown;
-            BtnBack.Dock = DockStyle.Bottom;
-            BtnBack.FlatAppearance.BorderSize = 0;
-            BtnBack.FlatStyle = FlatStyle.Flat;
-            BtnBack.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtnBack.ForeColor = Color.White;
-            BtnBack.Location = new Point(0, 438);
-            BtnBack.Name = "BtnBack";
-            BtnBack.Size = new Size(116, 42);
-            BtnBack.TabIndex = 4;
-            BtnBack.Text = "BACK";
-            BtnBack.UseVisualStyleBackColor = false;
+            btnBack.BackColor = Color.SaddleBrown;
+            btnBack.Dock = DockStyle.Bottom;
+            btnBack.FlatAppearance.BorderSize = 0;
+            btnBack.FlatStyle = FlatStyle.Flat;
+            btnBack.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBack.ForeColor = Color.White;
+            btnBack.Location = new Point(0, 438);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(116, 42);
+            btnBack.TabIndex = 4;
+            btnBack.Text = "BACK";
+            btnBack.UseVisualStyleBackColor = false;
+            btnBack.Click += btnBack_Click;
             // 
             // pnlNav
             // 
@@ -513,7 +514,7 @@
         private Button btnPayment;
         private Button BtnProducts;
         private Panel pnlNav;
-        private Button BtnBack;
+        private Button btnBack;
         private Panel panel;
         private Panel upperNavBar;
         private Button BtnOrders;

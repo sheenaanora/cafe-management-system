@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPanel));
             MenuPanel = new Panel();
+            btnSales = new Button();
+            btnOrders = new Button();
             pnlNav = new Panel();
             btnPayment = new Button();
             btnProducts = new Button();
@@ -53,8 +55,6 @@
             pictureBox5 = new PictureBox();
             label14 = new Label();
             label3 = new Label();
-            btnSales = new Button();
-            btnOrders = new Button();
             MenuPanel.SuspendLayout();
             scrollableMenu.SuspendLayout();
             panel4.SuspendLayout();
@@ -81,6 +81,36 @@
             MenuPanel.Name = "MenuPanel";
             MenuPanel.Size = new Size(120, 480);
             MenuPanel.TabIndex = 0;
+            // 
+            // btnSales
+            // 
+            btnSales.Dock = DockStyle.Top;
+            btnSales.FlatAppearance.BorderSize = 0;
+            btnSales.FlatStyle = FlatStyle.Flat;
+            btnSales.Font = new Font("Bahnschrift", 12F, FontStyle.Bold);
+            btnSales.ForeColor = Color.White;
+            btnSales.Location = new Point(0, 126);
+            btnSales.Name = "btnSales";
+            btnSales.Size = new Size(116, 42);
+            btnSales.TabIndex = 6;
+            btnSales.Text = "SALES";
+            btnSales.UseVisualStyleBackColor = true;
+            btnSales.Click += btnSales_Click;
+            // 
+            // btnOrders
+            // 
+            btnOrders.Dock = DockStyle.Top;
+            btnOrders.FlatAppearance.BorderSize = 0;
+            btnOrders.FlatStyle = FlatStyle.Flat;
+            btnOrders.Font = new Font("Bahnschrift", 12F, FontStyle.Bold);
+            btnOrders.ForeColor = Color.White;
+            btnOrders.Location = new Point(0, 84);
+            btnOrders.Name = "btnOrders";
+            btnOrders.Size = new Size(116, 42);
+            btnOrders.TabIndex = 5;
+            btnOrders.Text = "ORDERS";
+            btnOrders.UseVisualStyleBackColor = true;
+            btnOrders.Click += btnOrders_Click;
             // 
             // pnlNav
             // 
@@ -117,6 +147,7 @@
             btnProducts.TabIndex = 2;
             btnProducts.Text = "PRODUCTS";
             btnProducts.UseVisualStyleBackColor = true;
+            btnProducts.Click += btnProducts_Click;
             // 
             // btnDashboard
             // 
@@ -350,34 +381,6 @@
             label3.Size = new Size(156, 15);
             label3.TabIndex = 6;
             label3.Text = "Coffee Shop Administrator";
-            // 
-            // btnSales
-            // 
-            btnSales.Dock = DockStyle.Top;
-            btnSales.FlatAppearance.BorderSize = 0;
-            btnSales.FlatStyle = FlatStyle.Flat;
-            btnSales.Font = new Font("Bahnschrift", 12F, FontStyle.Bold);
-            btnSales.ForeColor = Color.White;
-            btnSales.Location = new Point(0, 126);
-            btnSales.Name = "btnSales";
-            btnSales.Size = new Size(116, 42);
-            btnSales.TabIndex = 6;
-            btnSales.Text = "SALES";
-            btnSales.UseVisualStyleBackColor = true;
-            // 
-            // btnOrders
-            // 
-            btnOrders.Dock = DockStyle.Top;
-            btnOrders.FlatAppearance.BorderSize = 0;
-            btnOrders.FlatStyle = FlatStyle.Flat;
-            btnOrders.Font = new Font("Bahnschrift", 12F, FontStyle.Bold);
-            btnOrders.ForeColor = Color.White;
-            btnOrders.Location = new Point(0, 84);
-            btnOrders.Name = "btnOrders";
-            btnOrders.Size = new Size(116, 42);
-            btnOrders.TabIndex = 5;
-            btnOrders.Text = "ORDERS";
-            btnOrders.UseVisualStyleBackColor = true;
             // 
             // AdminPanel
             // 

@@ -26,5 +26,12 @@ namespace CafeManagementSystem
         {
 
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            AdminPanel dashboard = new AdminPanel();
+            dashboard.Show();
+            this.Hide();
+        }
     }
 }

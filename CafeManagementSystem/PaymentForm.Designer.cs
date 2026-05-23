@@ -33,26 +33,26 @@
             MenuPanel = new Panel();
             pnlNav = new Panel();
             scrollableMenu = new Panel();
-            label1 = new Label();
-            dataGridView1 = new DataGridView();
-            label2 = new Label();
-            addItemBtn = new Button();
-            button1 = new Button();
+            label11 = new Label();
+            panel1 = new Panel();
+            panel2 = new Panel();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            label8 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label9 = new Label();
             label10 = new Label();
-            panel1 = new Panel();
-            panel2 = new Panel();
-            label11 = new Label();
+            label9 = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            label8 = new Label();
+            btnBack = new Button();
+            addItemBtn = new Button();
+            label2 = new Label();
+            dataGridView1 = new DataGridView();
+            label1 = new Label();
             MenuPanel.SuspendLayout();
             scrollableMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // MenuPanel
@@ -83,7 +83,7 @@
             scrollableMenu.Controls.Add(label7);
             scrollableMenu.Controls.Add(label6);
             scrollableMenu.Controls.Add(label8);
-            scrollableMenu.Controls.Add(button1);
+            scrollableMenu.Controls.Add(btnBack);
             scrollableMenu.Controls.Add(addItemBtn);
             scrollableMenu.Controls.Add(label2);
             scrollableMenu.Controls.Add(dataGridView1);
@@ -95,88 +95,38 @@
             scrollableMenu.TabIndex = 6;
             scrollableMenu.Paint += scrollableMenu_Paint;
             // 
-            // label1
+            // label11
             // 
-            label1.AutoSize = true;
-            label1.FlatStyle = FlatStyle.System;
-            label1.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.SaddleBrown;
-            label1.Location = new Point(392, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(188, 40);
-            label1.TabIndex = 9;
-            label1.Text = "Sales Report";
+            label11.AutoSize = true;
+            label11.FlatStyle = FlatStyle.System;
+            label11.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label11.ForeColor = Color.Peru;
+            label11.Location = new Point(385, 46);
+            label11.Name = "label11";
+            label11.Size = new Size(191, 15);
+            label11.TabIndex = 44;
+            label11.Text = "Daily Coffee Shop Sales Monitoring";
             // 
-            // dataGridView1
+            // panel1
             // 
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.SaddleBrown;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.Peru;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.GridColor = Color.Gainsboro;
-            dataGridView1.Location = new Point(238, 71);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(459, 382);
-            dataGridView1.TabIndex = 11;
+            panel1.BackColor = Color.SaddleBrown;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(panel2);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label5);
+            panel1.Location = new Point(17, 71);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(200, 180);
+            panel1.TabIndex = 4;
             // 
-            // label2
+            // panel2
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.White;
-            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.SaddleBrown;
-            label2.Location = new Point(421, 78);
-            label2.Name = "label2";
-            label2.Size = new Size(136, 20);
-            label2.TabIndex = 12;
-            label2.Text = "Sales Transactions";
-            // 
-            // addItemBtn
-            // 
-            addItemBtn.BackColor = Color.Chocolate;
-            addItemBtn.FlatAppearance.BorderSize = 0;
-            addItemBtn.FlatAppearance.MouseOverBackColor = Color.Peru;
-            addItemBtn.FlatStyle = FlatStyle.Flat;
-            addItemBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            addItemBtn.ForeColor = Color.White;
-            addItemBtn.Location = new Point(48, 364);
-            addItemBtn.Name = "addItemBtn";
-            addItemBtn.Size = new Size(140, 40);
-            addItemBtn.TabIndex = 34;
-            addItemBtn.Text = "Refresh Report";
-            addItemBtn.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.SaddleBrown;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseOverBackColor = Color.Chocolate;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(48, 420);
-            button1.Name = "button1";
-            button1.Size = new Size(140, 40);
-            button1.TabIndex = 35;
-            button1.Text = "Back";
-            button1.UseVisualStyleBackColor = false;
+            panel2.BackColor = Color.Chocolate;
+            panel2.Location = new Point(0, 160);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(3, 100);
+            panel2.TabIndex = 3;
             // 
             // label3
             // 
@@ -217,38 +167,16 @@
             label5.TabIndex = 38;
             label5.Text = "Best Seller: None";
             // 
-            // label8
+            // label10
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.Black;
-            label8.Location = new Point(245, 120);
-            label8.Name = "label8";
-            label8.Size = new Size(42, 19);
-            label8.TabIndex = 39;
-            label8.Text = "Date";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.Black;
-            label6.Location = new Point(323, 120);
-            label6.Name = "label6";
-            label6.Size = new Size(77, 19);
-            label6.TabIndex = 40;
-            label6.Text = "Customer";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.Black;
-            label7.Location = new Point(421, 120);
-            label7.Name = "label7";
-            label7.Size = new Size(64, 19);
-            label7.TabIndex = 41;
-            label7.Text = "Product";
+            label10.AutoSize = true;
+            label10.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.Black;
+            label10.Location = new Point(609, 120);
+            label10.Name = "label10";
+            label10.Size = new Size(45, 19);
+            label10.TabIndex = 43;
+            label10.Text = "Total";
             // 
             // label9
             // 
@@ -261,49 +189,122 @@
             label9.TabIndex = 42;
             label9.Text = "Quantity";
             // 
-            // label10
+            // label7
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.Black;
-            label10.Location = new Point(609, 120);
-            label10.Name = "label10";
-            label10.Size = new Size(45, 19);
-            label10.TabIndex = 43;
-            label10.Text = "Total";
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.Black;
+            label7.Location = new Point(421, 120);
+            label7.Name = "label7";
+            label7.Size = new Size(64, 19);
+            label7.TabIndex = 41;
+            label7.Text = "Product";
             // 
-            // panel1
+            // label6
             // 
-            panel1.BackColor = Color.SaddleBrown;
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(panel2);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(label5);
-            panel1.Location = new Point(17, 71);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(200, 180);
-            panel1.TabIndex = 4;
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.Black;
+            label6.Location = new Point(323, 120);
+            label6.Name = "label6";
+            label6.Size = new Size(77, 19);
+            label6.TabIndex = 40;
+            label6.Text = "Customer";
             // 
-            // panel2
+            // label8
             // 
-            panel2.BackColor = Color.Chocolate;
-            panel2.Location = new Point(0, 160);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(3, 100);
-            panel2.TabIndex = 3;
+            label8.AutoSize = true;
+            label8.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.Black;
+            label8.Location = new Point(245, 120);
+            label8.Name = "label8";
+            label8.Size = new Size(42, 19);
+            label8.TabIndex = 39;
+            label8.Text = "Date";
             // 
-            // label11
+            // btnBack
             // 
-            label11.AutoSize = true;
-            label11.FlatStyle = FlatStyle.System;
-            label11.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label11.ForeColor = Color.Peru;
-            label11.Location = new Point(385, 46);
-            label11.Name = "label11";
-            label11.Size = new Size(191, 15);
-            label11.TabIndex = 44;
-            label11.Text = "Daily Coffee Shop Sales Monitoring";
+            btnBack.BackColor = Color.SaddleBrown;
+            btnBack.FlatAppearance.BorderSize = 0;
+            btnBack.FlatAppearance.MouseOverBackColor = Color.Chocolate;
+            btnBack.FlatStyle = FlatStyle.Flat;
+            btnBack.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBack.ForeColor = Color.White;
+            btnBack.Location = new Point(48, 420);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(140, 40);
+            btnBack.TabIndex = 35;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = false;
+            btnBack.Click += btnBack_Click;
+            // 
+            // addItemBtn
+            // 
+            addItemBtn.BackColor = Color.Chocolate;
+            addItemBtn.FlatAppearance.BorderSize = 0;
+            addItemBtn.FlatAppearance.MouseOverBackColor = Color.Peru;
+            addItemBtn.FlatStyle = FlatStyle.Flat;
+            addItemBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            addItemBtn.ForeColor = Color.White;
+            addItemBtn.Location = new Point(48, 364);
+            addItemBtn.Name = "addItemBtn";
+            addItemBtn.Size = new Size(140, 40);
+            addItemBtn.TabIndex = 34;
+            addItemBtn.Text = "Refresh Report";
+            addItemBtn.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.White;
+            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.SaddleBrown;
+            label2.Location = new Point(421, 78);
+            label2.Name = "label2";
+            label2.Size = new Size(136, 20);
+            label2.TabIndex = 12;
+            label2.Text = "Sales Transactions";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.SaddleBrown;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.Peru;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = Color.BlanchedAlmond;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.GridColor = Color.Gainsboro;
+            dataGridView1.Location = new Point(238, 71);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(459, 382);
+            dataGridView1.TabIndex = 11;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.FlatStyle = FlatStyle.System;
+            label1.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.SaddleBrown;
+            label1.Location = new Point(392, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(188, 40);
+            label1.TabIndex = 9;
+            label1.Text = "Sales Report";
             // 
             // PaymentForm
             // 
@@ -322,9 +323,9 @@
             MenuPanel.ResumeLayout(false);
             scrollableMenu.ResumeLayout(false);
             scrollableMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -336,7 +337,7 @@
         private Label label1;
         private Label label2;
         private DataGridView dataGridView1;
-        private Button button1;
+        private Button btnBack;
         private Button addItemBtn;
         private Label label5;
         private Label label4;

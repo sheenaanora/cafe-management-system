@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_new_item));
             panel = new Panel();
             panelContainingAddNewItem = new Panel();
+            label2 = new Label();
+            button2 = new Button();
+            button1 = new Button();
             selectCategory = new ComboBox();
             categoryLabel = new Label();
             addNewItemLabel = new Label();
@@ -55,10 +58,7 @@
             textBox1 = new TextBox();
             progressBar1 = new ProgressBar();
             label1 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            label2 = new Label();
+            btnBack = new Button();
             panel.SuspendLayout();
             panelContainingAddNewItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)itemImageBox).BeginInit();
@@ -109,6 +109,47 @@
             panelContainingAddNewItem.Size = new Size(465, 448);
             panelContainingAddNewItem.TabIndex = 20;
             panelContainingAddNewItem.Paint += panelContainingAddNewItem_Paint;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(161, 27);
+            label2.Name = "label2";
+            label2.Size = new Size(149, 15);
+            label2.TabIndex = 39;
+            label2.Text = "Manage coffee menu items";
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Peru;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.MouseOverBackColor = Color.SandyBrown;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(161, 399);
+            button2.Name = "button2";
+            button2.Size = new Size(140, 40);
+            button2.TabIndex = 38;
+            button2.Text = "Update Product";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Firebrick;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = Color.IndianRed;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(317, 399);
+            button1.Name = "button1";
+            button1.Size = new Size(140, 40);
+            button1.TabIndex = 37;
+            button1.Text = "Delete Product";
+            button1.UseVisualStyleBackColor = false;
             // 
             // selectCategory
             // 
@@ -361,61 +402,21 @@
             label1.TabIndex = 3;
             label1.Text = "Orders";
             // 
-            // button1
+            // btnBack
             // 
-            button1.BackColor = Color.Firebrick;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseOverBackColor = Color.IndianRed;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(317, 399);
-            button1.Name = "button1";
-            button1.Size = new Size(140, 40);
-            button1.TabIndex = 37;
-            button1.Text = "Delete Product";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.Peru;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatAppearance.MouseOverBackColor = Color.SandyBrown;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(161, 399);
-            button2.Name = "button2";
-            button2.Size = new Size(140, 40);
-            button2.TabIndex = 38;
-            button2.Text = "Update Product";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.SaddleBrown;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatAppearance.MouseOverBackColor = Color.Peru;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(590, 10);
-            button3.Name = "button3";
-            button3.Size = new Size(56, 36);
-            button3.TabIndex = 39;
-            button3.Text = "Back";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.Black;
-            label2.Location = new Point(161, 27);
-            label2.Name = "label2";
-            label2.Size = new Size(149, 15);
-            label2.TabIndex = 39;
-            label2.Text = "Manage coffee menu items";
+            btnBack.BackColor = Color.SaddleBrown;
+            btnBack.FlatAppearance.BorderSize = 0;
+            btnBack.FlatAppearance.MouseOverBackColor = Color.Peru;
+            btnBack.FlatStyle = FlatStyle.Flat;
+            btnBack.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBack.ForeColor = Color.White;
+            btnBack.Location = new Point(590, 10);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(56, 36);
+            btnBack.TabIndex = 39;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = false;
+            btnBack.Click += btnBack_Click;
             // 
             // Add_new_item
             // 
@@ -424,7 +425,7 @@
             AutoValidate = AutoValidate.Disable;
             BackColor = Color.SaddleBrown;
             ClientSize = new Size(646, 535);
-            Controls.Add(button3);
+            Controls.Add(btnBack);
             Controls.Add(panel);
             ForeColor = Color.BlanchedAlmond;
             FormBorderStyle = FormBorderStyle.None;
@@ -468,7 +469,7 @@
         private ComboBox selectCategory;
         private Button button2;
         private Button button1;
-        private Button button3;
+        private Button btnBack;
         private Label label2;
     }
 }
