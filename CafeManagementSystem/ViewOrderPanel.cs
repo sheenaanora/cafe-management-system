@@ -22,6 +22,9 @@ namespace CafeManagementSystem
 
         }
 
-        
+        private void ViewOrderPanel_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
