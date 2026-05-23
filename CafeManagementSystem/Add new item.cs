@@ -16,5 +16,10 @@ namespace CafeManagementSystem
         {
             InitializeComponent();
         }
+
+        private void panelContainingAddNewItem_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

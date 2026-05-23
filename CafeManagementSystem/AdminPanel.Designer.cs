@@ -30,23 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPanel));
             MenuPanel = new Panel();
-            button2 = new Button();
-            button1 = new Button();
-            btnLogout = new Button();
             pnlNav = new Panel();
             btnPayment = new Button();
-            btnOrder = new Button();
-            btnMenu = new Button();
+            btnProducts = new Button();
+            btnDashboard = new Button();
             exitButton = new Button();
             scrollableMenu = new Panel();
-            panel6 = new Panel();
-            label13 = new Label();
-            flowLayoutPanel2 = new FlowLayoutPanel();
-            panel5 = new Panel();
-            label12 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            label11 = new Label();
-            label10 = new Label();
             label1 = new Label();
             panel4 = new Panel();
             label9 = new Label();
@@ -64,12 +53,10 @@
             pictureBox5 = new PictureBox();
             label14 = new Label();
             label3 = new Label();
-            pictureBox1 = new PictureBox();
-            label2 = new Label();
+            btnSales = new Button();
+            btnOrders = new Button();
             MenuPanel.SuspendLayout();
             scrollableMenu.SuspendLayout();
-            panel6.SuspendLayout();
-            panel5.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel3.SuspendLayout();
@@ -78,67 +65,22 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // MenuPanel
             // 
-            MenuPanel.BackColor = Color.Silver;
+            MenuPanel.BackColor = Color.FromArgb(92, 51, 23);
             MenuPanel.BorderStyle = BorderStyle.Fixed3D;
-            MenuPanel.Controls.Add(button2);
-            MenuPanel.Controls.Add(button1);
-            MenuPanel.Controls.Add(btnLogout);
+            MenuPanel.Controls.Add(btnSales);
+            MenuPanel.Controls.Add(btnOrders);
             MenuPanel.Controls.Add(pnlNav);
             MenuPanel.Controls.Add(btnPayment);
-            MenuPanel.Controls.Add(btnOrder);
-            MenuPanel.Controls.Add(btnMenu);
+            MenuPanel.Controls.Add(btnProducts);
+            MenuPanel.Controls.Add(btnDashboard);
             MenuPanel.Location = new Point(1, 57);
             MenuPanel.Name = "MenuPanel";
             MenuPanel.Size = new Size(120, 480);
             MenuPanel.TabIndex = 0;
-            // 
-            // button2
-            // 
-            button2.Dock = DockStyle.Top;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.System;
-            button2.Font = new Font("Bahnschrift", 12F, FontStyle.Bold);
-            button2.ForeColor = Color.Black;
-            button2.Location = new Point(0, 126);
-            button2.Name = "button2";
-            button2.Size = new Size(116, 42);
-            button2.TabIndex = 6;
-            button2.Text = "FEEDBACKS";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Dock = DockStyle.Top;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.System;
-            button1.Font = new Font("Bahnschrift", 12F, FontStyle.Bold);
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(0, 84);
-            button1.Name = "button1";
-            button1.Size = new Size(116, 42);
-            button1.TabIndex = 5;
-            button1.Text = "CUSTOMERS";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // btnLogout
-            // 
-            btnLogout.Dock = DockStyle.Bottom;
-            btnLogout.FlatAppearance.BorderSize = 0;
-            btnLogout.FlatStyle = FlatStyle.System;
-            btnLogout.Font = new Font("Bahnschrift", 12F, FontStyle.Bold);
-            btnLogout.ForeColor = Color.Black;
-            btnLogout.Location = new Point(0, 434);
-            btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(116, 42);
-            btnLogout.TabIndex = 4;
-            btnLogout.Text = "LOGOUT";
-            btnLogout.UseVisualStyleBackColor = true;
-            btnLogout.Click += btnLogout_Click;
             // 
             // pnlNav
             // 
@@ -162,33 +104,35 @@
             btnPayment.Text = "CUSTOMERS";
             btnPayment.UseVisualStyleBackColor = true;
             // 
-            // btnOrder
+            // btnProducts
             // 
-            btnOrder.Dock = DockStyle.Top;
-            btnOrder.FlatAppearance.BorderSize = 0;
-            btnOrder.FlatStyle = FlatStyle.System;
-            btnOrder.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnOrder.ForeColor = Color.Black;
-            btnOrder.Location = new Point(0, 42);
-            btnOrder.Name = "btnOrder";
-            btnOrder.Size = new Size(116, 42);
-            btnOrder.TabIndex = 2;
-            btnOrder.Text = "MENUS";
-            btnOrder.UseVisualStyleBackColor = true;
+            btnProducts.Dock = DockStyle.Top;
+            btnProducts.FlatAppearance.BorderSize = 0;
+            btnProducts.FlatStyle = FlatStyle.Flat;
+            btnProducts.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnProducts.ForeColor = Color.White;
+            btnProducts.Location = new Point(0, 42);
+            btnProducts.Name = "btnProducts";
+            btnProducts.Size = new Size(116, 42);
+            btnProducts.TabIndex = 2;
+            btnProducts.Text = "PRODUCTS";
+            btnProducts.UseVisualStyleBackColor = true;
             // 
-            // btnMenu
+            // btnDashboard
             // 
-            btnMenu.Dock = DockStyle.Top;
-            btnMenu.FlatAppearance.BorderSize = 0;
-            btnMenu.FlatStyle = FlatStyle.System;
-            btnMenu.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMenu.ForeColor = Color.Black;
-            btnMenu.Location = new Point(0, 0);
-            btnMenu.Name = "btnMenu";
-            btnMenu.Size = new Size(116, 42);
-            btnMenu.TabIndex = 1;
-            btnMenu.Text = "DASHBOARD";
-            btnMenu.UseVisualStyleBackColor = true;
+            btnDashboard.Dock = DockStyle.Top;
+            btnDashboard.FlatAppearance.BorderSize = 0;
+            btnDashboard.FlatAppearance.MouseDownBackColor = Color.Chocolate;
+            btnDashboard.FlatAppearance.MouseOverBackColor = Color.Peru;
+            btnDashboard.FlatStyle = FlatStyle.Flat;
+            btnDashboard.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDashboard.ForeColor = Color.White;
+            btnDashboard.Location = new Point(0, 0);
+            btnDashboard.Name = "btnDashboard";
+            btnDashboard.Size = new Size(116, 42);
+            btnDashboard.TabIndex = 1;
+            btnDashboard.Text = "DASHBOARD";
+            btnDashboard.UseVisualStyleBackColor = true;
             // 
             // exitButton
             // 
@@ -207,12 +151,8 @@
             // scrollableMenu
             // 
             scrollableMenu.AutoScroll = true;
-            scrollableMenu.BackColor = Color.FromArgb(224, 224, 224);
+            scrollableMenu.BackColor = Color.WhiteSmoke;
             scrollableMenu.BorderStyle = BorderStyle.Fixed3D;
-            scrollableMenu.Controls.Add(panel6);
-            scrollableMenu.Controls.Add(panel5);
-            scrollableMenu.Controls.Add(label11);
-            scrollableMenu.Controls.Add(label10);
             scrollableMenu.Controls.Add(label1);
             scrollableMenu.Controls.Add(panel4);
             scrollableMenu.Controls.Add(panel3);
@@ -222,92 +162,14 @@
             scrollableMenu.Size = new Size(710, 498);
             scrollableMenu.TabIndex = 6;
             // 
-            // panel6
-            // 
-            panel6.Controls.Add(label13);
-            panel6.Controls.Add(flowLayoutPanel2);
-            panel6.Location = new Point(38, 377);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(604, 140);
-            panel6.TabIndex = 7;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Georgia", 20.25F, FontStyle.Bold);
-            label13.ForeColor = Color.Black;
-            label13.Location = new Point(20, 21);
-            label13.Name = "label13";
-            label13.Size = new Size(27, 31);
-            label13.TabIndex = 2;
-            label13.Text = "1";
-            // 
-            // flowLayoutPanel2
-            // 
-            flowLayoutPanel2.BackColor = Color.White;
-            flowLayoutPanel2.Location = new Point(58, 12);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(532, 40);
-            flowLayoutPanel2.TabIndex = 1;
-            // 
-            // panel5
-            // 
-            panel5.Controls.Add(label12);
-            panel5.Controls.Add(flowLayoutPanel1);
-            panel5.Location = new Point(38, 199);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(604, 140);
-            panel5.TabIndex = 6;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Georgia", 20.25F, FontStyle.Bold);
-            label12.ForeColor = Color.Black;
-            label12.Location = new Point(20, 11);
-            label12.Name = "label12";
-            label12.Size = new Size(27, 31);
-            label12.TabIndex = 1;
-            label12.Text = "1";
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.BackColor = Color.White;
-            flowLayoutPanel1.Location = new Point(58, 4);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(532, 38);
-            flowLayoutPanel1.TabIndex = 0;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.ForeColor = Color.Black;
-            label11.Location = new Point(38, 350);
-            label11.Name = "label11";
-            label11.Size = new Size(143, 24);
-            label11.TabIndex = 5;
-            label11.Text = "TOP ORDERS";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.Black;
-            label10.Location = new Point(38, 172);
-            label10.Name = "label10";
-            label10.Size = new Size(186, 24);
-            label10.TabIndex = 4;
-            label10.Text = "TOP CUSTOMERS";
-            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Black;
+            label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.SaddleBrown;
             label1.Location = new Point(38, 21);
             label1.Name = "label1";
-            label1.Size = new Size(111, 24);
+            label1.Size = new Size(126, 25);
             label1.TabIndex = 3;
             label1.Text = "Dashboard";
             // 
@@ -330,24 +192,23 @@
             label9.ForeColor = Color.Green;
             label9.Location = new Point(3, 33);
             label9.Name = "label9";
-            label9.Size = new Size(101, 31);
+            label9.Size = new Size(52, 31);
             label9.TabIndex = 7;
-            label9.Text = "1000$";
+            label9.Text = "₱0";
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Calibri", 14.25F, FontStyle.Bold);
-            label6.ForeColor = Color.Black;
-            label6.Location = new Point(13, 10);
+            label6.ForeColor = Color.SaddleBrown;
+            label6.Location = new Point(3, 10);
             label6.Name = "label6";
-            label6.Size = new Size(51, 23);
+            label6.Size = new Size(155, 23);
             label6.TabIndex = 2;
-            label6.Text = "Sales";
+            label6.Text = "💰  Sales Revenue";
             // 
             // pictureBox4
             // 
-            pictureBox4.BorderStyle = BorderStyle.FixedSingle;
             pictureBox4.Dock = DockStyle.Fill;
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
             pictureBox4.Location = new Point(0, 0);
@@ -375,24 +236,23 @@
             label8.ForeColor = Color.Green;
             label8.Location = new Point(3, 34);
             label8.Name = "label8";
-            label8.Size = new Size(84, 31);
+            label8.Size = new Size(33, 31);
             label8.TabIndex = 6;
-            label8.Text = "1000";
+            label8.Text = "0";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Calibri", 14.25F, FontStyle.Bold);
-            label5.ForeColor = Color.Black;
-            label5.Location = new Point(17, 11);
+            label5.ForeColor = Color.SaddleBrown;
+            label5.Location = new Point(-4, 11);
             label5.Name = "label5";
-            label5.Size = new Size(65, 23);
+            label5.Size = new Size(172, 23);
             label5.TabIndex = 1;
-            label5.Text = "Orders";
+            label5.Text = "\U0001f6d2 Customer Orders";
             // 
             // pictureBox3
             // 
-            pictureBox3.BorderStyle = BorderStyle.FixedSingle;
             pictureBox3.Dock = DockStyle.Fill;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(0, 0);
@@ -420,24 +280,23 @@
             label7.ForeColor = Color.Green;
             label7.Location = new Point(3, 30);
             label7.Name = "label7";
-            label7.Size = new Size(84, 31);
+            label7.Size = new Size(33, 31);
             label7.TabIndex = 4;
-            label7.Text = "1000";
+            label7.Text = "0";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.Black;
-            label4.Location = new Point(20, 9);
+            label4.ForeColor = Color.SaddleBrown;
+            label4.Location = new Point(27, 11);
             label4.Name = "label4";
-            label4.Size = new Size(55, 23);
+            label4.Size = new Size(110, 23);
             label4.TabIndex = 0;
-            label4.Text = "Users";
+            label4.Text = "☕  Products";
             // 
             // pictureBox2
             // 
-            pictureBox2.BorderStyle = BorderStyle.FixedSingle;
             pictureBox2.Dock = DockStyle.Fill;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(0, 0);
@@ -454,8 +313,6 @@
             panel1.Controls.Add(pictureBox5);
             panel1.Controls.Add(label14);
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(label2);
             panel1.Controls.Add(exitButton);
             panel1.Location = new Point(1, 0);
             panel1.Name = "panel1";
@@ -479,41 +336,48 @@
             label14.ForeColor = Color.SaddleBrown;
             label14.Location = new Point(59, 13);
             label14.Name = "label14";
-            label14.Size = new Size(159, 24);
+            label14.Size = new Size(209, 24);
             label14.TabIndex = 7;
-            label14.Text = "Midnight Mocha";
+            label14.Text = "Coffee Admin System";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(664, 27);
+            label3.ForeColor = Color.SaddleBrown;
+            label3.Location = new Point(628, 20);
             label3.Name = "label3";
-            label3.Size = new Size(43, 15);
+            label3.Size = new Size(156, 15);
             label3.TabIndex = 6;
-            label3.Text = "Admin";
+            label3.Text = "Coffee Shop Administrator";
             // 
-            // pictureBox1
+            // btnSales
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(718, 10);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(42, 34);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 5;
-            pictureBox1.TabStop = false;
+            btnSales.Dock = DockStyle.Top;
+            btnSales.FlatAppearance.BorderSize = 0;
+            btnSales.FlatStyle = FlatStyle.Flat;
+            btnSales.Font = new Font("Bahnschrift", 12F, FontStyle.Bold);
+            btnSales.ForeColor = Color.White;
+            btnSales.Location = new Point(0, 126);
+            btnSales.Name = "btnSales";
+            btnSales.Size = new Size(116, 42);
+            btnSales.TabIndex = 6;
+            btnSales.Text = "SALES";
+            btnSales.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // btnOrders
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ActiveCaptionText;
-            label2.Location = new Point(664, 12);
-            label2.Name = "label2";
-            label2.Size = new Size(48, 16);
-            label2.TabIndex = 4;
-            label2.Text = "Mr Ali ";
+            btnOrders.Dock = DockStyle.Top;
+            btnOrders.FlatAppearance.BorderSize = 0;
+            btnOrders.FlatStyle = FlatStyle.Flat;
+            btnOrders.Font = new Font("Bahnschrift", 12F, FontStyle.Bold);
+            btnOrders.ForeColor = Color.White;
+            btnOrders.Location = new Point(0, 84);
+            btnOrders.Name = "btnOrders";
+            btnOrders.Size = new Size(116, 42);
+            btnOrders.TabIndex = 5;
+            btnOrders.Text = "ORDERS";
+            btnOrders.UseVisualStyleBackColor = true;
             // 
             // AdminPanel
             // 
@@ -533,10 +397,6 @@
             MenuPanel.ResumeLayout(false);
             scrollableMenu.ResumeLayout(false);
             scrollableMenu.PerformLayout();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
@@ -549,7 +409,6 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -557,17 +416,14 @@
 
         private Panel MenuPanel;
 
-        private Button btnMenu;
+        private Button btnDashboard;
         private Button btnPayment;
-        private Button btnOrder;
+        private Button btnProducts;
         private Panel pnlNav;
-        private Button btnLogout;
         private Button exitButton;
         private Panel scrollableMenu;
         private Panel panel1;
-        private Label label2;
         private Label label3;
-        private PictureBox pictureBox1;
         private Label label1;
         private Panel panel4;
         private Panel panel3;
@@ -581,17 +437,9 @@
         private PictureBox pictureBox4;
         private Label label8;
         private Label label9;
-        private Button button1;
-        private Button button2;
-        private Panel panel5;
-        private Label label11;
-        private Label label10;
-        private Panel panel6;
-        private FlowLayoutPanel flowLayoutPanel2;
-        private Label label12;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Label label13;
         private Label label14;
         private PictureBox pictureBox5;
+        private Button btnSales;
+        private Button btnOrders;
     }
 }

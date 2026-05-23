@@ -55,6 +55,10 @@
             textBox1 = new TextBox();
             progressBar1 = new ProgressBar();
             label1 = new Label();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            label2 = new Label();
             panel.SuspendLayout();
             panelContainingAddNewItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)itemImageBox).BeginInit();
@@ -62,9 +66,7 @@
             // 
             // panel
             // 
-            panel.AutoScroll = true;
-            panel.BackColor = Color.FromArgb(224, 224, 224);
-            panel.BorderStyle = BorderStyle.Fixed3D;
+            panel.BackColor = Color.WhiteSmoke;
             panel.Controls.Add(panelContainingAddNewItem);
             panel.Controls.Add(label13);
             panel.Controls.Add(label9);
@@ -80,14 +82,18 @@
             panel.Controls.Add(textBox1);
             panel.Controls.Add(progressBar1);
             panel.Controls.Add(label1);
-            panel.Location = new Point(119, 54);
+            panel.Location = new Point(118, 52);
             panel.Name = "panel";
-            panel.Size = new Size(710, 498);
+            panel.Size = new Size(528, 483);
             panel.TabIndex = 6;
             // 
             // panelContainingAddNewItem
             // 
-            panelContainingAddNewItem.BackColor = Color.White;
+            panelContainingAddNewItem.AutoScroll = true;
+            panelContainingAddNewItem.BackColor = Color.WhiteSmoke;
+            panelContainingAddNewItem.Controls.Add(label2);
+            panelContainingAddNewItem.Controls.Add(button2);
+            panelContainingAddNewItem.Controls.Add(button1);
             panelContainingAddNewItem.Controls.Add(selectCategory);
             panelContainingAddNewItem.Controls.Add(categoryLabel);
             panelContainingAddNewItem.Controls.Add(addNewItemLabel);
@@ -98,17 +104,20 @@
             panelContainingAddNewItem.Controls.Add(nameTextArea);
             panelContainingAddNewItem.Controls.Add(itemImageLabel);
             panelContainingAddNewItem.Controls.Add(itemNameLabel);
-            panelContainingAddNewItem.Location = new Point(179, 19);
+            panelContainingAddNewItem.Location = new Point(36, 23);
             panelContainingAddNewItem.Name = "panelContainingAddNewItem";
-            panelContainingAddNewItem.Size = new Size(338, 448);
+            panelContainingAddNewItem.Size = new Size(465, 448);
             panelContainingAddNewItem.TabIndex = 20;
+            panelContainingAddNewItem.Paint += panelContainingAddNewItem_Paint;
             // 
             // selectCategory
             // 
+            selectCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            selectCategory.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             selectCategory.FormattingEnabled = true;
-            selectCategory.Location = new Point(33, 206);
+            selectCategory.Location = new Point(83, 212);
             selectCategory.Name = "selectCategory";
-            selectCategory.Size = new Size(270, 23);
+            selectCategory.Size = new Size(270, 25);
             selectCategory.TabIndex = 36;
             // 
             // categoryLabel
@@ -116,50 +125,53 @@
             categoryLabel.AutoSize = true;
             categoryLabel.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             categoryLabel.ForeColor = Color.Black;
-            categoryLabel.Location = new Point(28, 184);
+            categoryLabel.Location = new Point(78, 190);
             categoryLabel.Name = "categoryLabel";
-            categoryLabel.Size = new Size(72, 19);
+            categoryLabel.Size = new Size(80, 19);
             categoryLabel.TabIndex = 34;
-            categoryLabel.Text = "Category";
+            categoryLabel.Text = "Category: ";
             // 
             // addNewItemLabel
             // 
-            addNewItemLabel.AutoSize = true;
             addNewItemLabel.Font = new Font("Microsoft Tai Le", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             addNewItemLabel.ForeColor = Color.Black;
-            addNewItemLabel.Location = new Point(103, 19);
+            addNewItemLabel.Location = new Point(99, 4);
             addNewItemLabel.Name = "addNewItemLabel";
-            addNewItemLabel.Size = new Size(133, 23);
+            addNewItemLabel.Size = new Size(277, 23);
             addNewItemLabel.TabIndex = 23;
-            addNewItemLabel.Text = "Add new item";
+            addNewItemLabel.Text = "Coffee Product Management";
+            addNewItemLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // addItemBtn
             // 
-            addItemBtn.BackColor = Color.Green;
+            addItemBtn.BackColor = Color.ForestGreen;
+            addItemBtn.FlatAppearance.BorderSize = 0;
+            addItemBtn.FlatAppearance.MouseOverBackColor = Color.LimeGreen;
             addItemBtn.FlatStyle = FlatStyle.Flat;
-            addItemBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            addItemBtn.ForeColor = Color.Black;
-            addItemBtn.Location = new Point(103, 394);
+            addItemBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            addItemBtn.ForeColor = Color.White;
+            addItemBtn.Location = new Point(10, 399);
             addItemBtn.Name = "addItemBtn";
-            addItemBtn.Size = new Size(133, 36);
+            addItemBtn.Size = new Size(140, 40);
             addItemBtn.TabIndex = 33;
-            addItemBtn.Text = "Add item";
+            addItemBtn.Text = "Save Product";
             addItemBtn.UseVisualStyleBackColor = false;
             // 
             // itemImageBox
             // 
-            itemImageBox.BackColor = Color.Silver;
+            itemImageBox.BackColor = Color.White;
+            itemImageBox.BorderStyle = BorderStyle.FixedSingle;
             itemImageBox.Image = (Image)resources.GetObject("itemImageBox.Image");
-            itemImageBox.Location = new Point(90, 273);
+            itemImageBox.Location = new Point(166, 279);
             itemImageBox.Name = "itemImageBox";
-            itemImageBox.Size = new Size(161, 103);
+            itemImageBox.Size = new Size(130, 110);
             itemImageBox.SizeMode = PictureBoxSizeMode.Zoom;
             itemImageBox.TabIndex = 32;
             itemImageBox.TabStop = false;
             // 
             // priceTextArea
             // 
-            priceTextArea.Location = new Point(33, 141);
+            priceTextArea.Location = new Point(83, 147);
             priceTextArea.Name = "priceTextArea";
             priceTextArea.Size = new Size(270, 23);
             priceTextArea.TabIndex = 31;
@@ -169,15 +181,15 @@
             itemPriceLabel.AutoSize = true;
             itemPriceLabel.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             itemPriceLabel.ForeColor = Color.Black;
-            itemPriceLabel.Location = new Point(28, 118);
+            itemPriceLabel.Location = new Point(83, 125);
             itemPriceLabel.Name = "itemPriceLabel";
-            itemPriceLabel.Size = new Size(43, 19);
+            itemPriceLabel.Size = new Size(47, 19);
             itemPriceLabel.TabIndex = 28;
-            itemPriceLabel.Text = "Price";
+            itemPriceLabel.Text = "Price:";
             // 
             // nameTextArea
             // 
-            nameTextArea.Location = new Point(33, 78);
+            nameTextArea.Location = new Point(83, 84);
             nameTextArea.Name = "nameTextArea";
             nameTextArea.Size = new Size(270, 23);
             nameTextArea.TabIndex = 30;
@@ -187,31 +199,31 @@
             itemImageLabel.AutoSize = true;
             itemImageLabel.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             itemImageLabel.ForeColor = Color.Black;
-            itemImageLabel.Location = new Point(33, 242);
+            itemImageLabel.Location = new Point(83, 257);
             itemImageLabel.Name = "itemImageLabel";
-            itemImageLabel.Size = new Size(53, 19);
+            itemImageLabel.Size = new Size(120, 19);
             itemImageLabel.TabIndex = 29;
-            itemImageLabel.Text = "Image";
+            itemImageLabel.Text = "Product Image: ";
             // 
             // itemNameLabel
             // 
             itemNameLabel.AutoSize = true;
             itemNameLabel.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             itemNameLabel.ForeColor = Color.Black;
-            itemNameLabel.Location = new Point(28, 56);
+            itemNameLabel.Location = new Point(83, 62);
             itemNameLabel.Name = "itemNameLabel";
-            itemNameLabel.Size = new Size(51, 19);
+            itemNameLabel.Size = new Size(105, 19);
             itemNameLabel.TabIndex = 27;
-            itemNameLabel.Text = "Name";
+            itemNameLabel.Text = "Coffee Name:";
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.ForeColor = Color.Black;
+            label13.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.DimGray;
             label13.Location = new Point(519, -223);
             label13.Name = "label13";
-            label13.Size = new Size(123, 19);
+            label13.Size = new Size(88, 13);
             label13.TabIndex = 18;
             label13.Text = "Customer Name";
             // 
@@ -349,13 +361,70 @@
             label1.TabIndex = 3;
             label1.Text = "Orders";
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Firebrick;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = Color.IndianRed;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(317, 399);
+            button1.Name = "button1";
+            button1.Size = new Size(140, 40);
+            button1.TabIndex = 37;
+            button1.Text = "Delete Product";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Peru;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.MouseOverBackColor = Color.SandyBrown;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(161, 399);
+            button2.Name = "button2";
+            button2.Size = new Size(140, 40);
+            button2.TabIndex = 38;
+            button2.Text = "Update Product";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.SaddleBrown;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatAppearance.MouseOverBackColor = Color.Peru;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.White;
+            button3.Location = new Point(590, 10);
+            button3.Name = "button3";
+            button3.Size = new Size(56, 36);
+            button3.TabIndex = 39;
+            button3.Text = "Back";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(161, 27);
+            label2.Name = "label2";
+            label2.Size = new Size(149, 15);
+            label2.TabIndex = 39;
+            label2.Text = "Manage coffee menu items";
+            // 
             // Add_new_item
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.Disable;
-            BackColor = Color.Black;
-            ClientSize = new Size(828, 535);
+            BackColor = Color.SaddleBrown;
+            ClientSize = new Size(646, 535);
+            Controls.Add(button3);
             Controls.Add(panel);
             ForeColor = Color.BlanchedAlmond;
             FormBorderStyle = FormBorderStyle.None;
@@ -397,5 +466,9 @@
         private Button addItemBtn;
         private Label categoryLabel;
         private ComboBox selectCategory;
+        private Button button2;
+        private Button button1;
+        private Button button3;
+        private Label label2;
     }
 }
