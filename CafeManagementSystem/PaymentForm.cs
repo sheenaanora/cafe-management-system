@@ -17,6 +17,14 @@ namespace CafeManagementSystem
             InitializeComponent();
         }
 
-      
+        private void scrollableMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void payByCashBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
