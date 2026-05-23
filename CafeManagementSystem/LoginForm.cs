@@ -21,7 +21,7 @@ namespace CafeManagementSystem
         {
             InitializeComponent();
             color = Color.CadetBlue;
-            signup=new SignupPanel();
+            signup = new SignupPanel();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace CafeManagementSystem
             if (string.IsNullOrWhiteSpace(password))
             {
                 ShowErrorMessage("Password cannot be empty.");
-                return; 
+                return;
             }
             // SQL query to check login credentials and retrieve role
             string loginQuery = "SELECT role FROM Customer WHERE username = @Username AND password = @Password";
@@ -151,6 +151,11 @@ namespace CafeManagementSystem
             signup.signupPanel.BringToFront();
 
 
+
+        }
+
+        private void usernameLabel_Click(object sender, EventArgs e)
+        {
 
         }
     }
