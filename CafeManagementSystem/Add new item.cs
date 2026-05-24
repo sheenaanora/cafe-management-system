@@ -53,5 +53,32 @@ namespace CafeManagementSystem
             txtCoffeeName.Clear();
             txtPrice.Clear();
         }
+
+        private void dgvProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && !dgvProducts.Rows[e.RowIndex].IsNewRow)
+            {
+                txtCoffeeName.Text = dgvProducts.Rows[e.RowIndex].Cells[0].Value?.ToString();
+                txtPrice.Text = dgvProducts.Rows[e.RowIndex].Cells[1].Value?.ToString();
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (dgvProducts.CurrentRow != null && !dgvProducts.CurrentRow.IsNewRow)
+            {
+                dgvProducts.CurrentRow.Cells[0].Value = txtCoffeeName.Text;
+                dgvProducts.CurrentRow.Cells[1].Value = txtPrice.Text;
+
+                MessageBox.Show("Product updated successfully!");
+
+                txtCoffeeName.Clear();
+                txtPrice.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Please select a product to update.");
+            }
+        }
     }
 }

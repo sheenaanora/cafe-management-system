@@ -135,6 +135,7 @@
             btnUpdate.TabIndex = 38;
             btnUpdate.Text = "Update Product";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 
@@ -404,9 +405,13 @@
             dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProducts.Columns.AddRange(new DataGridViewColumn[] { colName, colPrice });
             dgvProducts.Location = new Point(546, 51);
+            dgvProducts.MultiSelect = false;
             dgvProducts.Name = "dgvProducts";
+            dgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProducts.Size = new Size(244, 460);
             dgvProducts.TabIndex = 40;
+            dgvProducts.CellClick += dgvProducts_CellContentClick;
+            dgvProducts.CellContentClick += dgvProducts_CellContentClick;
             // 
             // colName
             // 
