@@ -29,90 +29,82 @@
         private void InitializeComponent()
         {
             MenuPanel = new Panel();
-            BtnSales = new Button();
-            BtnOrders = new Button();
+            btnSales = new Button();
+            btnOrders = new Button();
             btnBack = new Button();
             pnlNav = new Panel();
             btnPayment = new Button();
-            BtnProducts = new Button();
-            BtnDashboard = new Button();
+            btnProducts = new Button();
+            btnDashboard = new Button();
             panel = new Panel();
-            BtnRemove = new Button();
+            btnRemove = new Button();
             label1 = new Label();
-            comboBoxOrderStatus = new ComboBox();
-            BtnUpdate = new Button();
-            scrollablePanel = new Panel();
-            panel3 = new Panel();
-            itemStatus = new Label();
-            itemCustomer = new Label();
-            itemID = new Label();
-            itemPrice = new Label();
-            itemName = new Label();
-            selectFilterComboBox = new ComboBox();
-            itemIDLabel = new Label();
-            itemCustomerNameLabel = new Label();
-            itemNameLabel = new Label();
-            itemPicBoxLabel = new Label();
-            itemPriceLabel = new Label();
-            itemStatusLabel = new Label();
+            cmbStatus = new ComboBox();
+            btnUpdate = new Button();
+            cmbFilter = new ComboBox();
             manageOrdersLabel = new Label();
             filterLabel = new Label();
             progressLabel = new Label();
             searchBarLabel = new TextBox();
             upperNavBar = new Panel();
             label2 = new Label();
+            dgvOrders = new DataGridView();
+            colOrderId = new DataGridViewTextBoxColumn();
+            colProductName = new DataGridViewTextBoxColumn();
+            colTotalPrice = new DataGridViewTextBoxColumn();
+            colStatus = new DataGridViewTextBoxColumn();
+            colCustomer = new DataGridViewTextBoxColumn();
             MenuPanel.SuspendLayout();
             panel.SuspendLayout();
-            scrollablePanel.SuspendLayout();
-            panel3.SuspendLayout();
             upperNavBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvOrders).BeginInit();
             SuspendLayout();
             // 
             // MenuPanel
             // 
             MenuPanel.BackColor = Color.SaddleBrown;
             MenuPanel.BorderStyle = BorderStyle.Fixed3D;
-            MenuPanel.Controls.Add(BtnSales);
-            MenuPanel.Controls.Add(BtnOrders);
+            MenuPanel.Controls.Add(btnSales);
+            MenuPanel.Controls.Add(btnOrders);
             MenuPanel.Controls.Add(btnBack);
             MenuPanel.Controls.Add(pnlNav);
             MenuPanel.Controls.Add(btnPayment);
-            MenuPanel.Controls.Add(BtnProducts);
-            MenuPanel.Controls.Add(BtnDashboard);
+            MenuPanel.Controls.Add(btnProducts);
+            MenuPanel.Controls.Add(btnDashboard);
             MenuPanel.Location = new Point(1, 54);
             MenuPanel.Name = "MenuPanel";
             MenuPanel.Size = new Size(120, 484);
             MenuPanel.TabIndex = 0;
             // 
-            // BtnSales
+            // btnSales
             // 
-            BtnSales.BackColor = Color.SaddleBrown;
-            BtnSales.Dock = DockStyle.Top;
-            BtnSales.FlatAppearance.BorderSize = 0;
-            BtnSales.FlatStyle = FlatStyle.Flat;
-            BtnSales.Font = new Font("Segoe UI", 11.25F);
-            BtnSales.ForeColor = Color.White;
-            BtnSales.Location = new Point(0, 126);
-            BtnSales.Name = "BtnSales";
-            BtnSales.Size = new Size(116, 42);
-            BtnSales.TabIndex = 6;
-            BtnSales.Text = "SALES";
-            BtnSales.UseVisualStyleBackColor = false;
+            btnSales.BackColor = Color.SaddleBrown;
+            btnSales.Dock = DockStyle.Top;
+            btnSales.FlatAppearance.BorderSize = 0;
+            btnSales.FlatStyle = FlatStyle.Flat;
+            btnSales.Font = new Font("Segoe UI", 11.25F);
+            btnSales.ForeColor = Color.White;
+            btnSales.Location = new Point(0, 126);
+            btnSales.Name = "btnSales";
+            btnSales.Size = new Size(116, 42);
+            btnSales.TabIndex = 6;
+            btnSales.Text = "SALES";
+            btnSales.UseVisualStyleBackColor = false;
             // 
-            // BtnOrders
+            // btnOrders
             // 
-            BtnOrders.BackColor = Color.Peru;
-            BtnOrders.Dock = DockStyle.Top;
-            BtnOrders.FlatAppearance.BorderSize = 0;
-            BtnOrders.FlatStyle = FlatStyle.Flat;
-            BtnOrders.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BtnOrders.ForeColor = Color.White;
-            BtnOrders.Location = new Point(0, 84);
-            BtnOrders.Name = "BtnOrders";
-            BtnOrders.Size = new Size(116, 42);
-            BtnOrders.TabIndex = 5;
-            BtnOrders.Text = "ORDERS";
-            BtnOrders.UseVisualStyleBackColor = false;
+            btnOrders.BackColor = Color.Peru;
+            btnOrders.Dock = DockStyle.Top;
+            btnOrders.FlatAppearance.BorderSize = 0;
+            btnOrders.FlatStyle = FlatStyle.Flat;
+            btnOrders.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnOrders.ForeColor = Color.White;
+            btnOrders.Location = new Point(0, 84);
+            btnOrders.Name = "btnOrders";
+            btnOrders.Size = new Size(116, 42);
+            btnOrders.TabIndex = 5;
+            btnOrders.Text = "ORDERS";
+            btnOrders.UseVisualStyleBackColor = false;
             // 
             // btnBack
             // 
@@ -152,52 +144,46 @@
             btnPayment.Text = "CUSTOMERS";
             btnPayment.UseVisualStyleBackColor = true;
             // 
-            // BtnProducts
+            // btnProducts
             // 
-            BtnProducts.BackColor = Color.SaddleBrown;
-            BtnProducts.Dock = DockStyle.Top;
-            BtnProducts.FlatAppearance.BorderSize = 0;
-            BtnProducts.FlatStyle = FlatStyle.Flat;
-            BtnProducts.Font = new Font("Segoe UI", 11.25F);
-            BtnProducts.ForeColor = Color.White;
-            BtnProducts.Location = new Point(0, 42);
-            BtnProducts.Name = "BtnProducts";
-            BtnProducts.Size = new Size(116, 42);
-            BtnProducts.TabIndex = 2;
-            BtnProducts.Text = "PRODUCTS";
-            BtnProducts.UseVisualStyleBackColor = false;
+            btnProducts.BackColor = Color.SaddleBrown;
+            btnProducts.Dock = DockStyle.Top;
+            btnProducts.FlatAppearance.BorderSize = 0;
+            btnProducts.FlatStyle = FlatStyle.Flat;
+            btnProducts.Font = new Font("Segoe UI", 11.25F);
+            btnProducts.ForeColor = Color.White;
+            btnProducts.Location = new Point(0, 42);
+            btnProducts.Name = "btnProducts";
+            btnProducts.Size = new Size(116, 42);
+            btnProducts.TabIndex = 2;
+            btnProducts.Text = "PRODUCTS";
+            btnProducts.UseVisualStyleBackColor = false;
             // 
-            // BtnDashboard
+            // btnDashboard
             // 
-            BtnDashboard.BackColor = Color.SaddleBrown;
-            BtnDashboard.Dock = DockStyle.Top;
-            BtnDashboard.FlatAppearance.BorderSize = 0;
-            BtnDashboard.FlatStyle = FlatStyle.Flat;
-            BtnDashboard.Font = new Font("Segoe UI", 11.25F);
-            BtnDashboard.ForeColor = Color.White;
-            BtnDashboard.Location = new Point(0, 0);
-            BtnDashboard.Name = "BtnDashboard";
-            BtnDashboard.Size = new Size(116, 42);
-            BtnDashboard.TabIndex = 1;
-            BtnDashboard.Text = "DASHBOARD";
-            BtnDashboard.UseVisualStyleBackColor = false;
+            btnDashboard.BackColor = Color.SaddleBrown;
+            btnDashboard.Dock = DockStyle.Top;
+            btnDashboard.FlatAppearance.BorderSize = 0;
+            btnDashboard.FlatStyle = FlatStyle.Flat;
+            btnDashboard.Font = new Font("Segoe UI", 11.25F);
+            btnDashboard.ForeColor = Color.White;
+            btnDashboard.Location = new Point(0, 0);
+            btnDashboard.Name = "btnDashboard";
+            btnDashboard.Size = new Size(116, 42);
+            btnDashboard.TabIndex = 1;
+            btnDashboard.Text = "DASHBOARD";
+            btnDashboard.UseVisualStyleBackColor = false;
             // 
             // panel
             // 
             panel.AutoScroll = true;
             panel.BackColor = Color.WhiteSmoke;
-            panel.Controls.Add(BtnRemove);
+            panel.Controls.Add(dgvOrders);
+            panel.Controls.Add(btnRemove);
             panel.Controls.Add(label1);
-            panel.Controls.Add(comboBoxOrderStatus);
-            panel.Controls.Add(BtnUpdate);
-            panel.Controls.Add(scrollablePanel);
-            panel.Controls.Add(selectFilterComboBox);
-            panel.Controls.Add(itemIDLabel);
-            panel.Controls.Add(itemCustomerNameLabel);
-            panel.Controls.Add(itemNameLabel);
-            panel.Controls.Add(itemPicBoxLabel);
-            panel.Controls.Add(itemPriceLabel);
-            panel.Controls.Add(itemStatusLabel);
+            panel.Controls.Add(cmbStatus);
+            panel.Controls.Add(btnUpdate);
+            panel.Controls.Add(cmbFilter);
             panel.Controls.Add(manageOrdersLabel);
             panel.Controls.Add(filterLabel);
             panel.Controls.Add(progressLabel);
@@ -207,20 +193,20 @@
             panel.Size = new Size(712, 498);
             panel.TabIndex = 6;
             // 
-            // BtnRemove
+            // btnRemove
             // 
-            BtnRemove.BackColor = Color.Firebrick;
-            BtnRemove.FlatAppearance.BorderSize = 0;
-            BtnRemove.FlatAppearance.MouseOverBackColor = Color.IndianRed;
-            BtnRemove.FlatStyle = FlatStyle.Flat;
-            BtnRemove.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            BtnRemove.ForeColor = Color.White;
-            BtnRemove.Location = new Point(541, 419);
-            BtnRemove.Name = "BtnRemove";
-            BtnRemove.Size = new Size(140, 40);
-            BtnRemove.TabIndex = 30;
-            BtnRemove.Text = "Remove Order";
-            BtnRemove.UseVisualStyleBackColor = false;
+            btnRemove.BackColor = Color.Firebrick;
+            btnRemove.FlatAppearance.BorderSize = 0;
+            btnRemove.FlatAppearance.MouseOverBackColor = Color.IndianRed;
+            btnRemove.FlatStyle = FlatStyle.Flat;
+            btnRemove.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnRemove.ForeColor = Color.White;
+            btnRemove.Location = new Point(541, 419);
+            btnRemove.Name = "btnRemove";
+            btnRemove.Size = new Size(140, 40);
+            btnRemove.TabIndex = 30;
+            btnRemove.Text = "Remove Order";
+            btnRemove.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -233,186 +219,40 @@
             label1.TabIndex = 29;
             label1.Text = "Order Status";
             // 
-            // comboBoxOrderStatus
+            // cmbStatus
             // 
-            comboBoxOrderStatus.FlatStyle = FlatStyle.Flat;
-            comboBoxOrderStatus.FormattingEnabled = true;
-            comboBoxOrderStatus.Location = new Point(477, 66);
-            comboBoxOrderStatus.Name = "comboBoxOrderStatus";
-            comboBoxOrderStatus.Size = new Size(220, 23);
-            comboBoxOrderStatus.TabIndex = 28;
+            cmbStatus.FlatStyle = FlatStyle.Flat;
+            cmbStatus.FormattingEnabled = true;
+            cmbStatus.Items.AddRange(new object[] { "Pending", "", "Preparing", "", "Ready", "", "Completed" });
+            cmbStatus.Location = new Point(477, 66);
+            cmbStatus.Name = "cmbStatus";
+            cmbStatus.Size = new Size(220, 23);
+            cmbStatus.TabIndex = 28;
             // 
-            // BtnUpdate
+            // btnUpdate
             // 
-            BtnUpdate.BackColor = Color.Chocolate;
-            BtnUpdate.FlatAppearance.BorderSize = 0;
-            BtnUpdate.FlatAppearance.MouseOverBackColor = Color.Peru;
-            BtnUpdate.FlatStyle = FlatStyle.Flat;
-            BtnUpdate.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            BtnUpdate.ForeColor = Color.White;
-            BtnUpdate.Location = new Point(381, 419);
-            BtnUpdate.Name = "BtnUpdate";
-            BtnUpdate.Size = new Size(140, 40);
-            BtnUpdate.TabIndex = 27;
-            BtnUpdate.Text = "Update Status";
-            BtnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.BackColor = Color.Chocolate;
+            btnUpdate.FlatAppearance.BorderSize = 0;
+            btnUpdate.FlatAppearance.MouseOverBackColor = Color.Peru;
+            btnUpdate.FlatStyle = FlatStyle.Flat;
+            btnUpdate.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnUpdate.ForeColor = Color.White;
+            btnUpdate.Location = new Point(381, 419);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(140, 40);
+            btnUpdate.TabIndex = 27;
+            btnUpdate.Text = "Update Status";
+            btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
-            // scrollablePanel
+            // cmbFilter
             // 
-            scrollablePanel.AutoScroll = true;
-            scrollablePanel.BackColor = Color.White;
-            scrollablePanel.BorderStyle = BorderStyle.FixedSingle;
-            scrollablePanel.Controls.Add(panel3);
-            scrollablePanel.Location = new Point(36, 165);
-            scrollablePanel.Name = "scrollablePanel";
-            scrollablePanel.Size = new Size(661, 237);
-            scrollablePanel.TabIndex = 25;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.White;
-            panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(itemStatus);
-            panel3.Controls.Add(itemCustomer);
-            panel3.Controls.Add(itemID);
-            panel3.Controls.Add(itemPrice);
-            panel3.Controls.Add(itemName);
-            panel3.Location = new Point(6, 12);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(638, 65);
-            panel3.TabIndex = 23;
-            // 
-            // itemStatus
-            // 
-            itemStatus.AutoSize = true;
-            itemStatus.BackColor = Color.White;
-            itemStatus.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            itemStatus.ForeColor = Color.DarkOrange;
-            itemStatus.Location = new Point(467, 18);
-            itemStatus.Name = "itemStatus";
-            itemStatus.Size = new Size(52, 15);
-            itemStatus.TabIndex = 21;
-            itemStatus.Text = "Pending";
-            // 
-            // itemCustomer
-            // 
-            itemCustomer.AutoSize = true;
-            itemCustomer.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            itemCustomer.ForeColor = Color.Black;
-            itemCustomer.Location = new Point(573, 14);
-            itemCustomer.Name = "itemCustomer";
-            itemCustomer.Size = new Size(51, 19);
-            itemCustomer.TabIndex = 22;
-            itemCustomer.Text = "Name";
-            // 
-            // itemID
-            // 
-            itemID.AutoSize = true;
-            itemID.BackColor = Color.DimGray;
-            itemID.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            itemID.ForeColor = Color.Black;
-            itemID.Location = new Point(18, 14);
-            itemID.Name = "itemID";
-            itemID.Size = new Size(18, 19);
-            itemID.TabIndex = 19;
-            itemID.Text = "1";
-            // 
-            // itemPrice
-            // 
-            itemPrice.AutoSize = true;
-            itemPrice.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            itemPrice.ForeColor = Color.Black;
-            itemPrice.Location = new Point(355, 14);
-            itemPrice.Name = "itemPrice";
-            itemPrice.Size = new Size(51, 19);
-            itemPrice.TabIndex = 20;
-            itemPrice.Text = "Name";
-            // 
-            // itemName
-            // 
-            itemName.AutoSize = true;
-            itemName.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            itemName.ForeColor = Color.Black;
-            itemName.Location = new Point(215, 14);
-            itemName.Name = "itemName";
-            itemName.Size = new Size(51, 19);
-            itemName.TabIndex = 19;
-            itemName.Text = "Name";
-            // 
-            // selectFilterComboBox
-            // 
-            selectFilterComboBox.FlatStyle = FlatStyle.Flat;
-            selectFilterComboBox.FormattingEnabled = true;
-            selectFilterComboBox.Location = new Point(477, 37);
-            selectFilterComboBox.Name = "selectFilterComboBox";
-            selectFilterComboBox.Size = new Size(220, 23);
-            selectFilterComboBox.TabIndex = 7;
-            // 
-            // itemIDLabel
-            // 
-            itemIDLabel.AutoSize = true;
-            itemIDLabel.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            itemIDLabel.ForeColor = Color.Black;
-            itemIDLabel.Location = new Point(39, 143);
-            itemIDLabel.Name = "itemIDLabel";
-            itemIDLabel.Size = new Size(69, 19);
-            itemIDLabel.TabIndex = 13;
-            itemIDLabel.Text = "Order ID";
-            // 
-            // itemCustomerNameLabel
-            // 
-            itemCustomerNameLabel.AutoSize = true;
-            itemCustomerNameLabel.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            itemCustomerNameLabel.ForeColor = Color.Black;
-            itemCustomerNameLabel.Location = new Point(600, 141);
-            itemCustomerNameLabel.Name = "itemCustomerNameLabel";
-            itemCustomerNameLabel.Size = new Size(81, 19);
-            itemCustomerNameLabel.TabIndex = 18;
-            itemCustomerNameLabel.Text = "Customer ";
-            // 
-            // itemNameLabel
-            // 
-            itemNameLabel.AutoSize = true;
-            itemNameLabel.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            itemNameLabel.ForeColor = Color.Black;
-            itemNameLabel.Location = new Point(230, 143);
-            itemNameLabel.Name = "itemNameLabel";
-            itemNameLabel.Size = new Size(110, 19);
-            itemNameLabel.TabIndex = 14;
-            itemNameLabel.Text = "Product Name";
-            // 
-            // itemPicBoxLabel
-            // 
-            itemPicBoxLabel.AutoSize = true;
-            itemPicBoxLabel.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            itemPicBoxLabel.ForeColor = Color.Black;
-            itemPicBoxLabel.Location = new Point(157, 143);
-            itemPicBoxLabel.Name = "itemPicBoxLabel";
-            itemPicBoxLabel.Size = new Size(42, 19);
-            itemPicBoxLabel.TabIndex = 17;
-            itemPicBoxLabel.Text = "Item";
-            // 
-            // itemPriceLabel
-            // 
-            itemPriceLabel.AutoSize = true;
-            itemPriceLabel.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            itemPriceLabel.ForeColor = Color.Black;
-            itemPriceLabel.Location = new Point(382, 143);
-            itemPriceLabel.Name = "itemPriceLabel";
-            itemPriceLabel.Size = new Size(83, 19);
-            itemPriceLabel.TabIndex = 16;
-            itemPriceLabel.Text = "Total Price";
-            // 
-            // itemStatusLabel
-            // 
-            itemStatusLabel.AutoSize = true;
-            itemStatusLabel.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            itemStatusLabel.ForeColor = Color.Black;
-            itemStatusLabel.Location = new Point(509, 141);
-            itemStatusLabel.Name = "itemStatusLabel";
-            itemStatusLabel.Size = new Size(53, 19);
-            itemStatusLabel.TabIndex = 15;
-            itemStatusLabel.Text = "Status";
+            cmbFilter.FlatStyle = FlatStyle.Flat;
+            cmbFilter.FormattingEnabled = true;
+            cmbFilter.Location = new Point(477, 37);
+            cmbFilter.Name = "cmbFilter";
+            cmbFilter.Size = new Size(220, 23);
+            cmbFilter.TabIndex = 7;
             // 
             // manageOrdersLabel
             // 
@@ -481,6 +321,50 @@
             label2.TabIndex = 23;
             label2.Text = "Coffee Admin System";
             // 
+            // dgvOrders
+            // 
+            dgvOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvOrders.BackgroundColor = Color.White;
+            dgvOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvOrders.Columns.AddRange(new DataGridViewColumn[] { colOrderId, colProductName, colTotalPrice, colStatus, colCustomer });
+            dgvOrders.Location = new Point(39, 142);
+            dgvOrders.MultiSelect = false;
+            dgvOrders.Name = "dgvOrders";
+            dgvOrders.ReadOnly = true;
+            dgvOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvOrders.Size = new Size(658, 230);
+            dgvOrders.TabIndex = 31;
+            // 
+            // colOrderId
+            // 
+            colOrderId.HeaderText = "Order ID";
+            colOrderId.Name = "colOrderId";
+            colOrderId.ReadOnly = true;
+            // 
+            // colProductName
+            // 
+            colProductName.HeaderText = " Product Name";
+            colProductName.Name = "colProductName";
+            colProductName.ReadOnly = true;
+            // 
+            // colTotalPrice
+            // 
+            colTotalPrice.HeaderText = "Total Price";
+            colTotalPrice.Name = "colTotalPrice";
+            colTotalPrice.ReadOnly = true;
+            // 
+            // colStatus
+            // 
+            colStatus.HeaderText = "Status";
+            colStatus.Name = "colStatus";
+            colStatus.ReadOnly = true;
+            // 
+            // colCustomer
+            // 
+            colCustomer.HeaderText = "Customer";
+            colCustomer.Name = "colCustomer";
+            colCustomer.ReadOnly = true;
+            // 
             // ViewOrderPanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -498,11 +382,9 @@
             MenuPanel.ResumeLayout(false);
             panel.ResumeLayout(false);
             panel.PerformLayout();
-            scrollablePanel.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             upperNavBar.ResumeLayout(false);
             upperNavBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvOrders).EndInit();
             ResumeLayout(false);
         }
 
@@ -510,37 +392,30 @@
 
         private Panel MenuPanel;
 
-        private Button BtnDashboard;
+        private Button btnDashboard;
         private Button btnPayment;
-        private Button BtnProducts;
+        private Button btnProducts;
         private Panel pnlNav;
         private Button btnBack;
         private Panel panel;
         private Panel upperNavBar;
-        private Button BtnOrders;
-        private Button BtnSales;
+        private Button btnOrders;
+        private Button btnSales;
         private Label progressLabel;
-        private ComboBox selectFilterComboBox;
+        private ComboBox cmbFilter;
         private TextBox searchBarLabel;
         private Label filterLabel;
         private Label manageOrdersLabel;
-        private Label itemCustomerNameLabel;
-        private Label itemNameLabel;
-        private Label itemPicBoxLabel;
-        private Label itemPriceLabel;
-        private Label itemStatusLabel;
-        private Label itemIDLabel;
-        private Panel scrollablePanel;
-        private Panel panel3;
-        private Label itemStatus;
-        private Label itemCustomer;
-        private Label itemID;
-        private Label itemPrice;
-        private Label itemName;
-        private Button BtnUpdate;
+        private Button btnUpdate;
         private Label label1;
-        private ComboBox comboBoxOrderStatus;
+        private ComboBox cmbStatus;
         private Label label2;
-        private Button BtnRemove;
+        private Button btnRemove;
+        private DataGridView dgvOrders;
+        private DataGridViewTextBoxColumn colOrderId;
+        private DataGridViewTextBoxColumn colProductName;
+        private DataGridViewTextBoxColumn colTotalPrice;
+        private DataGridViewTextBoxColumn colStatus;
+        private DataGridViewTextBoxColumn colCustomer;
     }
 }

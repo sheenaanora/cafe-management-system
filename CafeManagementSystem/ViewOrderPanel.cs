@@ -15,6 +15,21 @@ namespace CafeManagementSystem
         public ViewOrderPanel()
         {
             InitializeComponent();
+
+            dgvOrders.DefaultCellStyle.ForeColor = Color.Black;
+            dgvOrders.DefaultCellStyle.BackColor = Color.White;
+
+            dgvOrders.RowsDefaultCellStyle.ForeColor = Color.Black;
+            dgvOrders.RowsDefaultCellStyle.BackColor = Color.White;
+
+            dgvOrders.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+            dgvOrders.AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke;
+
+            dgvOrders.DefaultCellStyle.SelectionBackColor = Color.Peru;
+            dgvOrders.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            dgvOrders.Rows.Add("001", "Latte", "₱150", "Pending", "Sheena");
+            dgvOrders.Rows.Add("002", "Espresso", "₱120", "Preparing", "John");
         }
 
         private void label22_Click(object sender, EventArgs e)
@@ -32,6 +47,20 @@ namespace CafeManagementSystem
             AdminPanel dashboard = new AdminPanel();
             dashboard.Show();
             this.Hide();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (dgvOrders.CurrentRow != null)
+            {
+                dgvOrders.CurrentRow.Cells[3].Value = cmbStatus.Text;
+
+                MessageBox.Show("Order status updated successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Please select an order.");
+            }
         }
     }
 }
