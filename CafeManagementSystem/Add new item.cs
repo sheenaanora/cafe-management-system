@@ -80,5 +80,22 @@ namespace CafeManagementSystem
                 MessageBox.Show("Please select a product to update.");
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvProducts.CurrentRow != null && !dgvProducts.CurrentRow.IsNewRow)
+            {
+                dgvProducts.Rows.Remove(dgvProducts.CurrentRow);
+
+                txtCoffeeName.Clear();
+                txtPrice.Clear();
+
+                MessageBox.Show("Product deleted successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Please select a product to delete.");
+            }
+        }
     }
 }

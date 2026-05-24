@@ -151,6 +151,7 @@
             btnDelete.TabIndex = 37;
             btnDelete.Text = "Delete Product";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // addNewItemLabel
             // 
