@@ -17,11 +17,6 @@ namespace CafeManagementSystem
             InitializeComponent();
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnProducts_Click(object sender, EventArgs e)
         {
             Add_new_item products = new Add_new_item();
@@ -43,9 +38,6 @@ namespace CafeManagementSystem
             this.Hide();
         }
 
-        private void exitButton_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        
     }
 }

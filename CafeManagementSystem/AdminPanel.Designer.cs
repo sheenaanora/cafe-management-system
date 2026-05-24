@@ -36,40 +36,30 @@
             btnPayment = new Button();
             btnProducts = new Button();
             btnDashboard = new Button();
-            exitButton = new Button();
             scrollableMenu = new Panel();
             label1 = new Label();
             panel4 = new Panel();
-            label9 = new Label();
             label6 = new Label();
-            pictureBox4 = new PictureBox();
-            panel3 = new Panel();
-            label8 = new Label();
-            label5 = new Label();
-            pictureBox3 = new PictureBox();
             panel2 = new Panel();
-            label7 = new Label();
             label4 = new Label();
-            pictureBox2 = new PictureBox();
             panel1 = new Panel();
             pictureBox5 = new PictureBox();
             label14 = new Label();
             label3 = new Label();
+            label5 = new Label();
+            panel3 = new Panel();
             MenuPanel.SuspendLayout();
             scrollableMenu.SuspendLayout();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // MenuPanel
             // 
-            MenuPanel.BackColor = Color.FromArgb(92, 51, 23);
+            MenuPanel.BackColor = Color.FromArgb(43, 26, 18);
             MenuPanel.BorderStyle = BorderStyle.Fixed3D;
             MenuPanel.Controls.Add(btnSales);
             MenuPanel.Controls.Add(btnOrders);
@@ -86,7 +76,7 @@
             // 
             btnSales.Dock = DockStyle.Top;
             btnSales.FlatAppearance.BorderSize = 0;
-            btnSales.FlatStyle = FlatStyle.Flat;
+            btnSales.FlatStyle = FlatStyle.System;
             btnSales.Font = new Font("Bahnschrift", 12F, FontStyle.Bold);
             btnSales.ForeColor = Color.White;
             btnSales.Location = new Point(0, 126);
@@ -101,7 +91,7 @@
             // 
             btnOrders.Dock = DockStyle.Top;
             btnOrders.FlatAppearance.BorderSize = 0;
-            btnOrders.FlatStyle = FlatStyle.Flat;
+            btnOrders.FlatStyle = FlatStyle.System;
             btnOrders.Font = new Font("Bahnschrift", 12F, FontStyle.Bold);
             btnOrders.ForeColor = Color.White;
             btnOrders.Location = new Point(0, 84);
@@ -138,7 +128,7 @@
             // 
             btnProducts.Dock = DockStyle.Top;
             btnProducts.FlatAppearance.BorderSize = 0;
-            btnProducts.FlatStyle = FlatStyle.Flat;
+            btnProducts.FlatStyle = FlatStyle.System;
             btnProducts.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnProducts.ForeColor = Color.White;
             btnProducts.Location = new Point(0, 42);
@@ -155,7 +145,7 @@
             btnDashboard.FlatAppearance.BorderSize = 0;
             btnDashboard.FlatAppearance.MouseDownBackColor = Color.Chocolate;
             btnDashboard.FlatAppearance.MouseOverBackColor = Color.Peru;
-            btnDashboard.FlatStyle = FlatStyle.Flat;
+            btnDashboard.FlatStyle = FlatStyle.System;
             btnDashboard.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDashboard.ForeColor = Color.White;
             btnDashboard.Location = new Point(0, 0);
@@ -165,25 +155,10 @@
             btnDashboard.Text = "DASHBOARD";
             btnDashboard.UseVisualStyleBackColor = true;
             // 
-            // exitButton
-            // 
-            exitButton.BackColor = Color.Black;
-            exitButton.FlatAppearance.BorderSize = 0;
-            exitButton.FlatStyle = FlatStyle.Flat;
-            exitButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            exitButton.ForeColor = Color.IndianRed;
-            exitButton.Location = new Point(790, 12);
-            exitButton.Name = "exitButton";
-            exitButton.Size = new Size(25, 25);
-            exitButton.TabIndex = 3;
-            exitButton.Text = "X";
-            exitButton.UseVisualStyleBackColor = false;
-            exitButton.Click += exitButton_Click;
-            // 
             // scrollableMenu
             // 
             scrollableMenu.AutoScroll = true;
-            scrollableMenu.BackColor = Color.WhiteSmoke;
+            scrollableMenu.BackColor = Color.FromArgb(243, 233, 220);
             scrollableMenu.BorderStyle = BorderStyle.Fixed3D;
             scrollableMenu.Controls.Add(label1);
             scrollableMenu.Controls.Add(panel4);
@@ -199,34 +174,21 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.SaddleBrown;
-            label1.Location = new Point(38, 21);
+            label1.Location = new Point(220, 20);
             label1.Name = "label1";
-            label1.Size = new Size(126, 25);
+            label1.Size = new Size(230, 25);
             label1.TabIndex = 3;
-            label1.Text = "Dashboard";
+            label1.Text = "Dashboard Overview";
             // 
             // panel4
             // 
             panel4.BackColor = Color.White;
             panel4.BorderStyle = BorderStyle.FixedSingle;
-            panel4.Controls.Add(label9);
             panel4.Controls.Add(label6);
-            panel4.Controls.Add(pictureBox4);
-            panel4.Location = new Point(466, 60);
+            panel4.Location = new Point(466, 71);
             panel4.Name = "panel4";
-            panel4.Size = new Size(163, 100);
+            panel4.Size = new Size(169, 111);
             panel4.TabIndex = 2;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Georgia", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.Green;
-            label9.Location = new Point(3, 33);
-            label9.Name = "label9";
-            label9.Size = new Size(52, 31);
-            label9.TabIndex = 7;
-            label9.Text = "₱0";
             // 
             // label6
             // 
@@ -239,82 +201,14 @@
             label6.TabIndex = 2;
             label6.Text = "💰  Sales Revenue";
             // 
-            // pictureBox4
-            // 
-            pictureBox4.Dock = DockStyle.Fill;
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(0, 0);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(161, 98);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 3;
-            pictureBox4.TabStop = false;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.White;
-            panel3.Controls.Add(label8);
-            panel3.Controls.Add(label5);
-            panel3.Controls.Add(pictureBox3);
-            panel3.Location = new Point(250, 60);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(163, 100);
-            panel3.TabIndex = 1;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Georgia", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.Green;
-            label8.Location = new Point(3, 34);
-            label8.Name = "label8";
-            label8.Size = new Size(33, 31);
-            label8.TabIndex = 6;
-            label8.Text = "0";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Calibri", 14.25F, FontStyle.Bold);
-            label5.ForeColor = Color.SaddleBrown;
-            label5.Location = new Point(-4, 11);
-            label5.Name = "label5";
-            label5.Size = new Size(172, 23);
-            label5.TabIndex = 1;
-            label5.Text = "\U0001f6d2 Customer Orders";
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Dock = DockStyle.Fill;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(0, 0);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(163, 100);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 2;
-            pictureBox3.TabStop = false;
-            // 
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Controls.Add(label7);
             panel2.Controls.Add(label4);
-            panel2.Controls.Add(pictureBox2);
-            panel2.Location = new Point(38, 60);
+            panel2.Location = new Point(44, 71);
             panel2.Name = "panel2";
-            panel2.Size = new Size(163, 100);
+            panel2.Size = new Size(175, 111);
             panel2.TabIndex = 0;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Georgia", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.Green;
-            label7.Location = new Point(3, 30);
-            label7.Name = "label7";
-            label7.Size = new Size(33, 31);
-            label7.TabIndex = 4;
-            label7.Text = "0";
             // 
             // label4
             // 
@@ -327,28 +221,16 @@
             label4.TabIndex = 0;
             label4.Text = "☕  Products";
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Dock = DockStyle.Fill;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(0, 0);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(163, 100);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 5;
-            pictureBox2.TabStop = false;
-            // 
             // panel1
             // 
-            panel1.BackColor = Color.Snow;
+            panel1.BackColor = Color.FromArgb(31, 26, 23);
             panel1.BorderStyle = BorderStyle.Fixed3D;
             panel1.Controls.Add(pictureBox5);
             panel1.Controls.Add(label14);
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(exitButton);
             panel1.Location = new Point(1, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(828, 57);
+            panel1.Size = new Size(828, 63);
             panel1.TabIndex = 7;
             // 
             // pictureBox5
@@ -364,11 +246,11 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
-            label14.ForeColor = Color.SaddleBrown;
-            label14.Location = new Point(59, 13);
+            label14.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.ForeColor = Color.White;
+            label14.Location = new Point(58, 13);
             label14.Name = "label14";
-            label14.Size = new Size(209, 24);
+            label14.Size = new Size(258, 32);
             label14.TabIndex = 7;
             label14.Text = "Coffee Admin System";
             // 
@@ -376,12 +258,32 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.SaddleBrown;
-            label3.Location = new Point(628, 20);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(657, 23);
             label3.Name = "label3";
             label3.Size = new Size(156, 15);
             label3.TabIndex = 6;
             label3.Text = "Coffee Shop Administrator";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Calibri", 14.25F, FontStyle.Bold);
+            label5.ForeColor = Color.SaddleBrown;
+            label5.Location = new Point(-4, 11);
+            label5.Name = "label5";
+            label5.Size = new Size(172, 23);
+            label5.TabIndex = 1;
+            label5.Text = "\U0001f6d2 Customer Orders";
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.White;
+            panel3.Controls.Add(label5);
+            panel3.Location = new Point(245, 71);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(173, 111);
+            panel3.TabIndex = 1;
             // 
             // AdminPanel
             // 
@@ -403,47 +305,36 @@
             scrollableMenu.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel MenuPanel;
-
-        private Button btnDashboard;
         private Button btnPayment;
         private Button btnProducts;
         private Panel pnlNav;
-        private Button exitButton;
         private Panel scrollableMenu;
         private Panel panel1;
         private Label label3;
         private Label label1;
-        private Panel panel4;
-        private Panel panel3;
-        private Panel panel2;
-        private Label label6;
-        private Label label5;
-        private Label label4;
-        private Label label7;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox4;
-        private Label label8;
-        private Label label9;
         private Label label14;
         private PictureBox pictureBox5;
         private Button btnSales;
         private Button btnOrders;
+        private Button btnDashboard;
+        private Panel panel4;
+        private Label label6;
+        private Panel panel2;
+        private Label label4;
+        private Panel panel3;
+        private Label label5;
     }
 }
