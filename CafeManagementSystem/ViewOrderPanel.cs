@@ -62,5 +62,33 @@ namespace CafeManagementSystem
                 MessageBox.Show("Please select an order.");
             }
         }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (dgvOrders.CurrentRow != null)
+            {
+                dgvOrders.Rows.Remove(dgvOrders.CurrentRow);
+
+                MessageBox.Show("Order removed successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Please select an order.");
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvOrders.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                bool visible = row.Cells[1].Value.ToString()
+                    .ToLower()
+                    .Contains(txtSearch.Text.ToLower());
+
+                row.Visible = visible;
+            }
+        }
     }
 }
