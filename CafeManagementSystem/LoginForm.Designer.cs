@@ -74,7 +74,6 @@
             loginButton.Text = "Login";
             loginButton.UseVisualStyleBackColor = false;
             loginButton.Click += loginButton_Click;
-            loginButton.MouseEnter += loginMouseEnter;
             // 
             // passwordTextarea
             // 
@@ -116,7 +115,6 @@
             usernameLabel.Size = new Size(88, 18);
             usernameLabel.TabIndex = 11;
             usernameLabel.Text = "Username: ";
-            usernameLabel.Click += usernameLabel_Click;
             // 
             // messageLabel
             // 

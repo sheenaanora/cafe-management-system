@@ -14,14 +14,15 @@ namespace CafeManagementSystem
 {
     public partial class LoginForm : Form
     {
-        private const string connectionString = "Data Source=CODING-0\\SQLEXPRESS;Initial Catalog=database_project;Integrated Security=True";
-        SignupPanel signup;
-        Color color;
+        private const string AdminUsername = "admin";
+        private const string AdminPassword = "admin123";
+
         public LoginForm()
         {
             InitializeComponent();
-            color = Color.CadetBlue;
-            signup = new SignupPanel();
+
+            this.AcceptButton = loginButton;
+            passwordTextarea.UseSystemPasswordChar = true;
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -29,21 +30,10 @@ namespace CafeManagementSystem
             Application.Exit();
         }
 
-        private void loginMouseEnter(object sender, EventArgs e)
-        {
-            loginButton.BackColor = Color.Aqua;
-        }
-
-        private void loginMouseLeave(object sender, EventArgs e)
-        {
-            loginButton.BackColor = color;
-        }
-
         private void loginButton_Click(object sender, EventArgs e)
         {
-
-            string username = usernameTextarea.Text;
-            string password = passwordTextarea.Text;
+            string username = usernameTextarea.Text.Trim();
+            string password = passwordTextarea.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(username))
             {
@@ -57,33 +47,23 @@ namespace CafeManagementSystem
                 return;
             }
 
-            MessageBox.Show("Login successful.");
+            if (username == AdminUsername && password == AdminPassword)
+            {
+                MessageBox.Show("Login successful.");
 
-            AdminPanel dashboard = new AdminPanel();
-            dashboard.Show();
-            this.Hide();
+                AdminPanel dashboard = new AdminPanel();
+                dashboard.Show();
+                this.Hide();
+            }
+            else
+            {
+                ShowErrorMessage("Invalid username or password.");
+            }
         }
         private void ShowErrorMessage(string message)
         {
-            // Change messageLabel text and color
             messageLabel.Text = message;
-            messageLabel.ForeColor = Color.Red; // Change color to red
-        }
-
-
-        private void signupButton_Click(object sender, EventArgs e)
-        {
-            signup.signupPanel.Show();
-            Controls.Add(signup.signupPanel);
-            signup.signupPanel.BringToFront();
-
-
-
-        }
-
-        private void usernameLabel_Click(object sender, EventArgs e)
-        {
-
+            messageLabel.ForeColor = Color.Red;
         }
     }
 }
