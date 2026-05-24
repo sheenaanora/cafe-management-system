@@ -32,12 +32,12 @@
             MenuPanel = new Panel();
             btnSales = new Button();
             btnOrders = new Button();
-            btnBack = new Button();
             pnlNav = new Panel();
             btnPayment = new Button();
             btnProducts = new Button();
             btnDashboard = new Button();
             panel = new Panel();
+            label6 = new Label();
             label4 = new Label();
             label3 = new Label();
             txtSearch = new TextBox();
@@ -59,7 +59,6 @@
             label5 = new Label();
             pictureBox5 = new PictureBox();
             label2 = new Label();
-            label6 = new Label();
             MenuPanel.SuspendLayout();
             panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvOrders).BeginInit();
@@ -73,7 +72,6 @@
             MenuPanel.BorderStyle = BorderStyle.Fixed3D;
             MenuPanel.Controls.Add(btnSales);
             MenuPanel.Controls.Add(btnOrders);
-            MenuPanel.Controls.Add(btnBack);
             MenuPanel.Controls.Add(pnlNav);
             MenuPanel.Controls.Add(btnPayment);
             MenuPanel.Controls.Add(btnProducts);
@@ -112,22 +110,6 @@
             btnOrders.TabIndex = 5;
             btnOrders.Text = "ORDERS";
             btnOrders.UseVisualStyleBackColor = false;
-            // 
-            // btnBack
-            // 
-            btnBack.BackColor = Color.SaddleBrown;
-            btnBack.Dock = DockStyle.Bottom;
-            btnBack.FlatAppearance.BorderSize = 0;
-            btnBack.FlatStyle = FlatStyle.System;
-            btnBack.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnBack.ForeColor = Color.White;
-            btnBack.Location = new Point(0, 438);
-            btnBack.Name = "btnBack";
-            btnBack.Size = new Size(116, 42);
-            btnBack.TabIndex = 4;
-            btnBack.Text = "BACK";
-            btnBack.UseVisualStyleBackColor = false;
-            btnBack.Click += btnBack_Click;
             // 
             // pnlNav
             // 
@@ -203,6 +185,18 @@
             panel.Name = "panel";
             panel.Size = new Size(712, 498);
             panel.TabIndex = 6;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.Black;
+            label6.Location = new Point(541, 107);
+            label6.Name = "label6";
+            label6.Size = new Size(119, 21);
+            label6.TabIndex = 41;
+            label6.Text = "Total Orders: 0";
+            label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
@@ -423,18 +417,6 @@
             label2.TabIndex = 23;
             label2.Text = "Coffee Admin System";
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.Black;
-            label6.Location = new Point(541, 107);
-            label6.Name = "label6";
-            label6.Size = new Size(119, 21);
-            label6.TabIndex = 41;
-            label6.Text = "Total Orders: 0";
-            label6.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // ViewOrderPanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -467,7 +449,6 @@
         private Button btnPayment;
         private Button btnProducts;
         private Panel pnlNav;
-        private Button btnBack;
         private Panel panel;
         private Panel upperNavBar;
         private Button btnOrders;
