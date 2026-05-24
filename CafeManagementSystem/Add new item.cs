@@ -15,6 +15,18 @@ namespace CafeManagementSystem
         public Add_new_item()
         {
             InitializeComponent();
+
+            dgvProducts.DefaultCellStyle.ForeColor = Color.Black;
+            dgvProducts.DefaultCellStyle.BackColor = Color.White;
+
+            dgvProducts.RowsDefaultCellStyle.ForeColor = Color.Black;
+            dgvProducts.RowsDefaultCellStyle.BackColor = Color.White;
+
+            dgvProducts.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+            dgvProducts.AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke;
+
+            dgvProducts.DefaultCellStyle.SelectionBackColor = Color.Peru;
+            dgvProducts.DefaultCellStyle.SelectionForeColor = Color.White;
         }
 
         private void panelContainingAddNewItem_Paint(object sender, PaintEventArgs e)
@@ -33,7 +45,7 @@ namespace CafeManagementSystem
         {
             dgvProducts.Rows.Add(
             txtCoffeeName.Text,
-            txtPrice.Text,
+            txtPrice.Text
         );
 
             MessageBox.Show("Product Added Successfully!");
