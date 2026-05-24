@@ -78,7 +78,7 @@
             MenuPanel.Controls.Add(btnDashboard);
             MenuPanel.Location = new Point(1, 54);
             MenuPanel.Name = "MenuPanel";
-            MenuPanel.Size = new Size(120, 484);
+            MenuPanel.Size = new Size(118, 484);
             MenuPanel.TabIndex = 0;
             // 
             // btnSales
@@ -91,10 +91,11 @@
             btnSales.ForeColor = Color.White;
             btnSales.Location = new Point(0, 126);
             btnSales.Name = "btnSales";
-            btnSales.Size = new Size(116, 42);
+            btnSales.Size = new Size(114, 42);
             btnSales.TabIndex = 6;
             btnSales.Text = "SALES";
             btnSales.UseVisualStyleBackColor = false;
+            btnSales.Click += btnSales_Click;
             // 
             // btnOrders
             // 
@@ -106,10 +107,11 @@
             btnOrders.ForeColor = Color.White;
             btnOrders.Location = new Point(0, 84);
             btnOrders.Name = "btnOrders";
-            btnOrders.Size = new Size(116, 42);
+            btnOrders.Size = new Size(114, 42);
             btnOrders.TabIndex = 5;
             btnOrders.Text = "ORDERS";
             btnOrders.UseVisualStyleBackColor = false;
+            btnOrders.Click += btnOrders_Click;
             // 
             // pnlNav
             // 
@@ -129,7 +131,7 @@
             btnPayment.ForeColor = Color.Black;
             btnPayment.Location = new Point(0, 84);
             btnPayment.Name = "btnPayment";
-            btnPayment.Size = new Size(116, 46);
+            btnPayment.Size = new Size(114, 46);
             btnPayment.TabIndex = 3;
             btnPayment.Text = "CUSTOMERS";
             btnPayment.UseVisualStyleBackColor = false;
@@ -144,10 +146,11 @@
             btnProducts.ForeColor = Color.White;
             btnProducts.Location = new Point(0, 42);
             btnProducts.Name = "btnProducts";
-            btnProducts.Size = new Size(116, 42);
+            btnProducts.Size = new Size(114, 42);
             btnProducts.TabIndex = 2;
             btnProducts.Text = "PRODUCTS";
             btnProducts.UseVisualStyleBackColor = false;
+            btnProducts.Click += btnProducts_Click;
             // 
             // btnDashboard
             // 
@@ -159,10 +162,11 @@
             btnDashboard.ForeColor = Color.White;
             btnDashboard.Location = new Point(0, 0);
             btnDashboard.Name = "btnDashboard";
-            btnDashboard.Size = new Size(116, 42);
+            btnDashboard.Size = new Size(114, 42);
             btnDashboard.TabIndex = 1;
             btnDashboard.Text = "DASHBOARD";
             btnDashboard.UseVisualStyleBackColor = false;
+            btnDashboard.Click += btnDashboard_Click;
             // 
             // panel
             // 

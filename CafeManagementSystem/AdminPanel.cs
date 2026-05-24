@@ -38,6 +38,33 @@ namespace CafeManagementSystem
             this.Hide();
         }
 
-        
+        private void MenuPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+        "Are you sure you want to logout?",
+        "Logout",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question
+    );
+
+            if (result == DialogResult.Yes)
+            {
+                LoginForm login = new LoginForm();
+                login.Show();
+                this.Hide();
+            }
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            AdminPanel dashboard = new AdminPanel();
+            dashboard.Show();
+            this.Hide();
+        }
     }
 }

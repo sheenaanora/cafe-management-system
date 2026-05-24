@@ -88,5 +88,33 @@ namespace CafeManagementSystem
                 row.Visible = visible;
             }
         }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            AdminPanel dashboard = new AdminPanel();
+            dashboard.Show();
+            this.Hide();
+        }
+
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            Add_new_item products = new Add_new_item();
+            products.Show();
+            this.Hide();
+        }
+
+        private void btnOrders_Click(object sender, EventArgs e)
+        {
+            ViewOrderPanel orders = new ViewOrderPanel();
+            orders.Show();
+            this.Hide();
+        }
+
+        private void btnSales_Click(object sender, EventArgs e)
+        {
+            PaymentForm sales = new PaymentForm();
+            sales.Show();
+            this.Hide();
+        }
     }
 }

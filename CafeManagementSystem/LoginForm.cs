@@ -65,5 +65,10 @@ namespace CafeManagementSystem
             messageLabel.Text = message;
             messageLabel.ForeColor = Color.Red;
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

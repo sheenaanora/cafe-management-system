@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPanel));
             MenuPanel = new Panel();
+            btnLogout = new Button();
             btnSales = new Button();
             btnOrders = new Button();
             pnlNav = new Panel();
@@ -65,6 +66,7 @@
             // 
             MenuPanel.BackColor = Color.FromArgb(43, 26, 18);
             MenuPanel.BorderStyle = BorderStyle.Fixed3D;
+            MenuPanel.Controls.Add(btnLogout);
             MenuPanel.Controls.Add(btnSales);
             MenuPanel.Controls.Add(btnOrders);
             MenuPanel.Controls.Add(pnlNav);
@@ -75,6 +77,23 @@
             MenuPanel.Name = "MenuPanel";
             MenuPanel.Size = new Size(120, 480);
             MenuPanel.TabIndex = 0;
+            MenuPanel.Paint += MenuPanel_Paint;
+            // 
+            // btnLogout
+            // 
+            btnLogout.BackColor = Color.Peru;
+            btnLogout.FlatAppearance.BorderSize = 0;
+            btnLogout.FlatAppearance.MouseOverBackColor = Color.SandyBrown;
+            btnLogout.FlatStyle = FlatStyle.System;
+            btnLogout.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.ForeColor = Color.White;
+            btnLogout.Location = new Point(0, 430);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(116, 45);
+            btnLogout.TabIndex = 39;
+            btnLogout.Text = "LOGOUT";
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnSales
             // 
@@ -158,6 +177,7 @@
             btnDashboard.TabIndex = 1;
             btnDashboard.Text = "DASHBOARD";
             btnDashboard.UseVisualStyleBackColor = true;
+            btnDashboard.Click += btnDashboard_Click;
             // 
             // scrollableMenu
             // 
@@ -394,5 +414,6 @@
         private Label label8;
         private Label label2;
         private Label label9;
+        private Button btnLogout;
     }
 }

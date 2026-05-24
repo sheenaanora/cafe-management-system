@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             loginPanel = new Panel();
+            pictureBox2 = new PictureBox();
             loginButton = new Button();
             passwordTextarea = new TextBox();
             passwordLabel = new Label();
@@ -37,10 +38,10 @@
             usernameLabel = new Label();
             messageLabel = new Label();
             pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
+            btnExit = new Button();
             loginPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // loginPanel
@@ -57,6 +58,16 @@
             loginPanel.Name = "loginPanel";
             loginPanel.Size = new Size(362, 486);
             loginPanel.TabIndex = 11;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.logo;
+            pictureBox2.Location = new Point(143, 13);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(94, 73);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 16;
+            pictureBox2.TabStop = false;
             // 
             // loginButton
             // 
@@ -139,21 +150,29 @@
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // btnExit
             // 
-            pictureBox2.Image = Properties.Resources.logo;
-            pictureBox2.Location = new Point(143, 13);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(94, 73);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 16;
-            pictureBox2.TabStop = false;
+            btnExit.BackColor = Color.SaddleBrown;
+            btnExit.FlatAppearance.BorderSize = 0;
+            btnExit.FlatAppearance.MouseDownBackColor = Color.Chocolate;
+            btnExit.FlatAppearance.MouseOverBackColor = Color.Peru;
+            btnExit.FlatStyle = FlatStyle.Flat;
+            btnExit.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExit.ForeColor = Color.White;
+            btnExit.Location = new Point(758, 12);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(27, 24);
+            btnExit.TabIndex = 17;
+            btnExit.Text = "X";
+            btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += btnExit_Click;
             // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(797, 531);
+            Controls.Add(btnExit);
             Controls.Add(loginPanel);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
@@ -162,8 +181,8 @@
             Text = "LoginForm";
             loginPanel.ResumeLayout(false);
             loginPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -177,5 +196,6 @@
         private Label messageLabel;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private Button btnExit;
     }
 }
