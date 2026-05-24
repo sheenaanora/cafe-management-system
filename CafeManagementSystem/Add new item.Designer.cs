@@ -32,16 +32,16 @@
             panel = new Panel();
             panelContainingAddNewItem = new Panel();
             label2 = new Label();
-            button2 = new Button();
-            button1 = new Button();
-            selectCategory = new ComboBox();
+            btnUpdate = new Button();
+            btnDelete = new Button();
+            cmbCategory = new ComboBox();
             categoryLabel = new Label();
             addNewItemLabel = new Label();
-            addItemBtn = new Button();
-            itemImageBox = new PictureBox();
-            priceTextArea = new TextBox();
+            btnSave = new Button();
+            picProduct = new PictureBox();
+            txtPrice = new TextBox();
             itemPriceLabel = new Label();
-            nameTextArea = new TextBox();
+            txtCoffeeName = new TextBox();
             itemImageLabel = new Label();
             itemNameLabel = new Label();
             label13 = new Label();
@@ -59,9 +59,14 @@
             progressBar1 = new ProgressBar();
             label1 = new Label();
             btnBack = new Button();
+            dgvProducts = new DataGridView();
+            colName = new DataGridViewTextBoxColumn();
+            colPrice = new DataGridViewTextBoxColumn();
+            colCategory = new DataGridViewTextBoxColumn();
             panel.SuspendLayout();
             panelContainingAddNewItem.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)itemImageBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picProduct).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
             SuspendLayout();
             // 
             // panel
@@ -82,7 +87,7 @@
             panel.Controls.Add(textBox1);
             panel.Controls.Add(progressBar1);
             panel.Controls.Add(label1);
-            panel.Location = new Point(118, 52);
+            panel.Location = new Point(12, 28);
             panel.Name = "panel";
             panel.Size = new Size(528, 483);
             panel.TabIndex = 6;
@@ -92,16 +97,16 @@
             panelContainingAddNewItem.AutoScroll = true;
             panelContainingAddNewItem.BackColor = Color.WhiteSmoke;
             panelContainingAddNewItem.Controls.Add(label2);
-            panelContainingAddNewItem.Controls.Add(button2);
-            panelContainingAddNewItem.Controls.Add(button1);
-            panelContainingAddNewItem.Controls.Add(selectCategory);
+            panelContainingAddNewItem.Controls.Add(btnUpdate);
+            panelContainingAddNewItem.Controls.Add(btnDelete);
+            panelContainingAddNewItem.Controls.Add(cmbCategory);
             panelContainingAddNewItem.Controls.Add(categoryLabel);
             panelContainingAddNewItem.Controls.Add(addNewItemLabel);
-            panelContainingAddNewItem.Controls.Add(addItemBtn);
-            panelContainingAddNewItem.Controls.Add(itemImageBox);
-            panelContainingAddNewItem.Controls.Add(priceTextArea);
+            panelContainingAddNewItem.Controls.Add(btnSave);
+            panelContainingAddNewItem.Controls.Add(picProduct);
+            panelContainingAddNewItem.Controls.Add(txtPrice);
             panelContainingAddNewItem.Controls.Add(itemPriceLabel);
-            panelContainingAddNewItem.Controls.Add(nameTextArea);
+            panelContainingAddNewItem.Controls.Add(txtCoffeeName);
             panelContainingAddNewItem.Controls.Add(itemImageLabel);
             panelContainingAddNewItem.Controls.Add(itemNameLabel);
             panelContainingAddNewItem.Location = new Point(36, 23);
@@ -121,45 +126,45 @@
             label2.TabIndex = 39;
             label2.Text = "Manage coffee menu items";
             // 
-            // button2
+            // btnUpdate
             // 
-            button2.BackColor = Color.Peru;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatAppearance.MouseOverBackColor = Color.SandyBrown;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(161, 399);
-            button2.Name = "button2";
-            button2.Size = new Size(140, 40);
-            button2.TabIndex = 38;
-            button2.Text = "Update Product";
-            button2.UseVisualStyleBackColor = false;
+            btnUpdate.BackColor = Color.Peru;
+            btnUpdate.FlatAppearance.BorderSize = 0;
+            btnUpdate.FlatAppearance.MouseOverBackColor = Color.SandyBrown;
+            btnUpdate.FlatStyle = FlatStyle.Flat;
+            btnUpdate.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUpdate.ForeColor = Color.White;
+            btnUpdate.Location = new Point(161, 399);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(140, 40);
+            btnUpdate.TabIndex = 38;
+            btnUpdate.Text = "Update Product";
+            btnUpdate.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnDelete
             // 
-            button1.BackColor = Color.Firebrick;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseOverBackColor = Color.IndianRed;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(317, 399);
-            button1.Name = "button1";
-            button1.Size = new Size(140, 40);
-            button1.TabIndex = 37;
-            button1.Text = "Delete Product";
-            button1.UseVisualStyleBackColor = false;
+            btnDelete.BackColor = Color.Firebrick;
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.FlatAppearance.MouseOverBackColor = Color.IndianRed;
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDelete.ForeColor = Color.White;
+            btnDelete.Location = new Point(317, 399);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(140, 40);
+            btnDelete.TabIndex = 37;
+            btnDelete.Text = "Delete Product";
+            btnDelete.UseVisualStyleBackColor = false;
             // 
-            // selectCategory
+            // cmbCategory
             // 
-            selectCategory.DropDownStyle = ComboBoxStyle.DropDownList;
-            selectCategory.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            selectCategory.FormattingEnabled = true;
-            selectCategory.Location = new Point(83, 212);
-            selectCategory.Name = "selectCategory";
-            selectCategory.Size = new Size(270, 25);
-            selectCategory.TabIndex = 36;
+            cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCategory.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbCategory.FormattingEnabled = true;
+            cmbCategory.Location = new Point(83, 212);
+            cmbCategory.Name = "cmbCategory";
+            cmbCategory.Size = new Size(270, 25);
+            cmbCategory.TabIndex = 36;
             // 
             // categoryLabel
             // 
@@ -183,39 +188,40 @@
             addNewItemLabel.Text = "Coffee Product Management";
             addNewItemLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // addItemBtn
+            // btnSave
             // 
-            addItemBtn.BackColor = Color.ForestGreen;
-            addItemBtn.FlatAppearance.BorderSize = 0;
-            addItemBtn.FlatAppearance.MouseOverBackColor = Color.LimeGreen;
-            addItemBtn.FlatStyle = FlatStyle.Flat;
-            addItemBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            addItemBtn.ForeColor = Color.White;
-            addItemBtn.Location = new Point(10, 399);
-            addItemBtn.Name = "addItemBtn";
-            addItemBtn.Size = new Size(140, 40);
-            addItemBtn.TabIndex = 33;
-            addItemBtn.Text = "Save Product";
-            addItemBtn.UseVisualStyleBackColor = false;
+            btnSave.BackColor = Color.ForestGreen;
+            btnSave.FlatAppearance.BorderSize = 0;
+            btnSave.FlatAppearance.MouseOverBackColor = Color.LimeGreen;
+            btnSave.FlatStyle = FlatStyle.Flat;
+            btnSave.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSave.ForeColor = Color.White;
+            btnSave.Location = new Point(10, 399);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(140, 40);
+            btnSave.TabIndex = 33;
+            btnSave.Text = "Save Product";
+            btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += BtnSave_Click;
             // 
-            // itemImageBox
+            // picProduct
             // 
-            itemImageBox.BackColor = Color.White;
-            itemImageBox.BorderStyle = BorderStyle.FixedSingle;
-            itemImageBox.Image = (Image)resources.GetObject("itemImageBox.Image");
-            itemImageBox.Location = new Point(166, 279);
-            itemImageBox.Name = "itemImageBox";
-            itemImageBox.Size = new Size(130, 110);
-            itemImageBox.SizeMode = PictureBoxSizeMode.Zoom;
-            itemImageBox.TabIndex = 32;
-            itemImageBox.TabStop = false;
+            picProduct.BackColor = Color.White;
+            picProduct.BorderStyle = BorderStyle.FixedSingle;
+            picProduct.Image = (Image)resources.GetObject("picProduct.Image");
+            picProduct.Location = new Point(166, 279);
+            picProduct.Name = "picProduct";
+            picProduct.Size = new Size(130, 110);
+            picProduct.SizeMode = PictureBoxSizeMode.Zoom;
+            picProduct.TabIndex = 32;
+            picProduct.TabStop = false;
             // 
-            // priceTextArea
+            // txtPrice
             // 
-            priceTextArea.Location = new Point(83, 147);
-            priceTextArea.Name = "priceTextArea";
-            priceTextArea.Size = new Size(270, 23);
-            priceTextArea.TabIndex = 31;
+            txtPrice.Location = new Point(83, 147);
+            txtPrice.Name = "txtPrice";
+            txtPrice.Size = new Size(270, 23);
+            txtPrice.TabIndex = 31;
             // 
             // itemPriceLabel
             // 
@@ -228,12 +234,12 @@
             itemPriceLabel.TabIndex = 28;
             itemPriceLabel.Text = "Price:";
             // 
-            // nameTextArea
+            // txtCoffeeName
             // 
-            nameTextArea.Location = new Point(83, 84);
-            nameTextArea.Name = "nameTextArea";
-            nameTextArea.Size = new Size(270, 23);
-            nameTextArea.TabIndex = 30;
+            txtCoffeeName.Location = new Point(83, 84);
+            txtCoffeeName.Name = "txtCoffeeName";
+            txtCoffeeName.Size = new Size(270, 23);
+            txtCoffeeName.TabIndex = 30;
             // 
             // itemImageLabel
             // 
@@ -410,7 +416,7 @@
             btnBack.FlatStyle = FlatStyle.Flat;
             btnBack.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBack.ForeColor = Color.White;
-            btnBack.Location = new Point(590, 10);
+            btnBack.Location = new Point(832, 9);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(56, 36);
             btnBack.TabIndex = 39;
@@ -418,13 +424,39 @@
             btnBack.UseVisualStyleBackColor = false;
             btnBack.Click += btnBack_Click;
             // 
+            // dgvProducts
+            // 
+            dgvProducts.BackgroundColor = Color.White;
+            dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProducts.Columns.AddRange(new DataGridViewColumn[] { colName, colPrice, colCategory });
+            dgvProducts.Location = new Point(546, 51);
+            dgvProducts.Name = "dgvProducts";
+            dgvProducts.Size = new Size(342, 460);
+            dgvProducts.TabIndex = 40;
+            // 
+            // colName
+            // 
+            colName.HeaderText = "Coffee Name";
+            colName.Name = "colName";
+            // 
+            // colPrice
+            // 
+            colPrice.HeaderText = "Price";
+            colPrice.Name = "colPrice";
+            // 
+            // colCategory
+            // 
+            colCategory.HeaderText = "Category";
+            colCategory.Name = "colCategory";
+            // 
             // Add_new_item
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.Disable;
             BackColor = Color.SaddleBrown;
-            ClientSize = new Size(646, 535);
+            ClientSize = new Size(897, 535);
+            Controls.Add(dgvProducts);
             Controls.Add(btnBack);
             Controls.Add(panel);
             ForeColor = Color.BlanchedAlmond;
@@ -436,7 +468,8 @@
             panel.PerformLayout();
             panelContainingAddNewItem.ResumeLayout(false);
             panelContainingAddNewItem.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)itemImageBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picProduct).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
             ResumeLayout(false);
         }
 
@@ -461,15 +494,19 @@
         private Label itemImageLabel;
         private Label itemPriceLabel;
         private Panel panelContainingAddNewItem;
-        private TextBox nameTextArea;
-        private PictureBox itemImageBox;
-        private TextBox priceTextArea;
-        private Button addItemBtn;
+        private TextBox txtCoffeeName;
+        private PictureBox picProduct;
+        private TextBox txtPrice;
+        private Button btnSave;
         private Label categoryLabel;
-        private ComboBox selectCategory;
-        private Button button2;
-        private Button button1;
+        private ComboBox cmbCategory;
+        private Button btnUpdate;
+        private Button btnDelete;
         private Button btnBack;
         private Label label2;
+        private DataGridView dgvProducts;
+        private DataGridViewTextBoxColumn colName;
+        private DataGridViewTextBoxColumn colPrice;
+        private DataGridViewTextBoxColumn colCategory;
     }
 }

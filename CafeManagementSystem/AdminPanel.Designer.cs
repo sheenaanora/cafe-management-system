@@ -178,6 +178,7 @@
             exitButton.TabIndex = 3;
             exitButton.Text = "X";
             exitButton.UseVisualStyleBackColor = false;
+            exitButton.Click += exitButton_Click;
             // 
             // scrollableMenu
             // 

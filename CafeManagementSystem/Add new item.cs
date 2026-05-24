@@ -28,5 +28,20 @@ namespace CafeManagementSystem
             dashboard.Show();
             this.Hide();
         }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            dgvProducts.Rows.Add(
+            txtCoffeeName.Text,
+            txtPrice.Text,
+            cmbCategory.Text
+        );
+
+            MessageBox.Show("Product Added Successfully!");
+
+            txtCoffeeName.Clear();
+            txtPrice.Clear();
+            cmbCategory.SelectedIndex = -1;
+        }
     }
 }

@@ -42,5 +42,10 @@ namespace CafeManagementSystem
             sales.Show();
             this.Hide();
         }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
