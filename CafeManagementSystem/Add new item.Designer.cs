@@ -34,8 +34,6 @@
             label2 = new Label();
             btnUpdate = new Button();
             btnDelete = new Button();
-            cmbCategory = new ComboBox();
-            categoryLabel = new Label();
             addNewItemLabel = new Label();
             btnSave = new Button();
             picProduct = new PictureBox();
@@ -62,7 +60,6 @@
             dgvProducts = new DataGridView();
             colName = new DataGridViewTextBoxColumn();
             colPrice = new DataGridViewTextBoxColumn();
-            colCategory = new DataGridViewTextBoxColumn();
             panel.SuspendLayout();
             panelContainingAddNewItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picProduct).BeginInit();
@@ -99,8 +96,6 @@
             panelContainingAddNewItem.Controls.Add(label2);
             panelContainingAddNewItem.Controls.Add(btnUpdate);
             panelContainingAddNewItem.Controls.Add(btnDelete);
-            panelContainingAddNewItem.Controls.Add(cmbCategory);
-            panelContainingAddNewItem.Controls.Add(categoryLabel);
             panelContainingAddNewItem.Controls.Add(addNewItemLabel);
             panelContainingAddNewItem.Controls.Add(btnSave);
             panelContainingAddNewItem.Controls.Add(picProduct);
@@ -156,27 +151,6 @@
             btnDelete.Text = "Delete Product";
             btnDelete.UseVisualStyleBackColor = false;
             // 
-            // cmbCategory
-            // 
-            cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbCategory.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(83, 212);
-            cmbCategory.Name = "cmbCategory";
-            cmbCategory.Size = new Size(270, 25);
-            cmbCategory.TabIndex = 36;
-            // 
-            // categoryLabel
-            // 
-            categoryLabel.AutoSize = true;
-            categoryLabel.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            categoryLabel.ForeColor = Color.Black;
-            categoryLabel.Location = new Point(78, 190);
-            categoryLabel.Name = "categoryLabel";
-            categoryLabel.Size = new Size(80, 19);
-            categoryLabel.TabIndex = 34;
-            categoryLabel.Text = "Category: ";
-            // 
             // addNewItemLabel
             // 
             addNewItemLabel.Font = new Font("Microsoft Tai Le", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -209,7 +183,7 @@
             picProduct.BackColor = Color.White;
             picProduct.BorderStyle = BorderStyle.FixedSingle;
             picProduct.Image = (Image)resources.GetObject("picProduct.Image");
-            picProduct.Location = new Point(166, 279);
+            picProduct.Location = new Point(161, 233);
             picProduct.Name = "picProduct";
             picProduct.Size = new Size(130, 110);
             picProduct.SizeMode = PictureBoxSizeMode.Zoom;
@@ -246,7 +220,7 @@
             itemImageLabel.AutoSize = true;
             itemImageLabel.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             itemImageLabel.ForeColor = Color.Black;
-            itemImageLabel.Location = new Point(83, 257);
+            itemImageLabel.Location = new Point(83, 199);
             itemImageLabel.Name = "itemImageLabel";
             itemImageLabel.Size = new Size(120, 19);
             itemImageLabel.TabIndex = 29;
@@ -416,7 +390,7 @@
             btnBack.FlatStyle = FlatStyle.Flat;
             btnBack.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBack.ForeColor = Color.White;
-            btnBack.Location = new Point(832, 9);
+            btnBack.Location = new Point(734, 9);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(56, 36);
             btnBack.TabIndex = 39;
@@ -428,10 +402,10 @@
             // 
             dgvProducts.BackgroundColor = Color.White;
             dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProducts.Columns.AddRange(new DataGridViewColumn[] { colName, colPrice, colCategory });
+            dgvProducts.Columns.AddRange(new DataGridViewColumn[] { colName, colPrice });
             dgvProducts.Location = new Point(546, 51);
             dgvProducts.Name = "dgvProducts";
-            dgvProducts.Size = new Size(342, 460);
+            dgvProducts.Size = new Size(244, 460);
             dgvProducts.TabIndex = 40;
             // 
             // colName
@@ -444,18 +418,13 @@
             colPrice.HeaderText = "Price";
             colPrice.Name = "colPrice";
             // 
-            // colCategory
-            // 
-            colCategory.HeaderText = "Category";
-            colCategory.Name = "colCategory";
-            // 
             // Add_new_item
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.Disable;
             BackColor = Color.SaddleBrown;
-            ClientSize = new Size(897, 535);
+            ClientSize = new Size(799, 535);
             Controls.Add(dgvProducts);
             Controls.Add(btnBack);
             Controls.Add(panel);
@@ -498,8 +467,6 @@
         private PictureBox picProduct;
         private TextBox txtPrice;
         private Button btnSave;
-        private Label categoryLabel;
-        private ComboBox cmbCategory;
         private Button btnUpdate;
         private Button btnDelete;
         private Button btnBack;
@@ -507,6 +474,5 @@
         private DataGridView dgvProducts;
         private DataGridViewTextBoxColumn colName;
         private DataGridViewTextBoxColumn colPrice;
-        private DataGridViewTextBoxColumn colCategory;
     }
 }
