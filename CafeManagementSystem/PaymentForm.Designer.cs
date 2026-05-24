@@ -36,23 +36,23 @@
             label11 = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label10 = new Label();
-            label9 = new Label();
-            label7 = new Label();
-            label6 = new Label();
-            label8 = new Label();
+            lblTotalOrders = new Label();
+            lblTotalRevenue = new Label();
+            lblBestSeller = new Label();
             btnBack = new Button();
-            addItemBtn = new Button();
+            btnRefresh = new Button();
             label2 = new Label();
-            dataGridView1 = new DataGridView();
+            dgvSales = new DataGridView();
+            colDate = new DataGridViewTextBoxColumn();
+            colCustomer = new DataGridViewTextBoxColumn();
+            colProduct = new DataGridViewTextBoxColumn();
+            colQuantity = new DataGridViewTextBoxColumn();
+            colTotal = new DataGridViewTextBoxColumn();
             label1 = new Label();
             MenuPanel.SuspendLayout();
             scrollableMenu.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvSales).BeginInit();
             SuspendLayout();
             // 
             // MenuPanel
@@ -78,15 +78,10 @@
             scrollableMenu.BackColor = Color.WhiteSmoke;
             scrollableMenu.Controls.Add(label11);
             scrollableMenu.Controls.Add(panel1);
-            scrollableMenu.Controls.Add(label10);
-            scrollableMenu.Controls.Add(label9);
-            scrollableMenu.Controls.Add(label7);
-            scrollableMenu.Controls.Add(label6);
-            scrollableMenu.Controls.Add(label8);
             scrollableMenu.Controls.Add(btnBack);
-            scrollableMenu.Controls.Add(addItemBtn);
+            scrollableMenu.Controls.Add(btnRefresh);
             scrollableMenu.Controls.Add(label2);
-            scrollableMenu.Controls.Add(dataGridView1);
+            scrollableMenu.Controls.Add(dgvSales);
             scrollableMenu.Controls.Add(label1);
             scrollableMenu.Font = new Font("Microsoft Sans Serif", 8.25F);
             scrollableMenu.Location = new Point(119, 48);
@@ -112,12 +107,12 @@
             panel1.BackColor = Color.SaddleBrown;
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(panel2);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(label5);
-            panel1.Location = new Point(17, 71);
+            panel1.Controls.Add(lblTotalOrders);
+            panel1.Controls.Add(lblTotalRevenue);
+            panel1.Controls.Add(lblBestSeller);
+            panel1.Location = new Point(17, 96);
             panel1.Name = "panel1";
-            panel1.Size = new Size(200, 180);
+            panel1.Size = new Size(184, 210);
             panel1.TabIndex = 4;
             // 
             // panel2
@@ -128,99 +123,44 @@
             panel2.Size = new Size(3, 100);
             panel2.TabIndex = 3;
             // 
-            // label3
+            // lblTotalOrders
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Chocolate;
-            label3.FlatStyle = FlatStyle.System;
-            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(41, 26);
-            label3.Name = "label3";
-            label3.Size = new Size(112, 20);
-            label3.TabIndex = 36;
-            label3.Text = "Total Orders: 0";
+            lblTotalOrders.AutoSize = true;
+            lblTotalOrders.BackColor = Color.Chocolate;
+            lblTotalOrders.FlatStyle = FlatStyle.System;
+            lblTotalOrders.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalOrders.ForeColor = Color.White;
+            lblTotalOrders.Location = new Point(30, 38);
+            lblTotalOrders.Name = "lblTotalOrders";
+            lblTotalOrders.Size = new Size(112, 20);
+            lblTotalOrders.TabIndex = 36;
+            lblTotalOrders.Text = "Total Orders: 0";
             // 
-            // label4
+            // lblTotalRevenue
             // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.Chocolate;
-            label4.FlatStyle = FlatStyle.System;
-            label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(18, 81);
-            label4.Name = "label4";
-            label4.Size = new Size(157, 20);
-            label4.TabIndex = 37;
-            label4.Text = "Total Revenue: ₱0.00";
+            lblTotalRevenue.AutoSize = true;
+            lblTotalRevenue.BackColor = Color.Chocolate;
+            lblTotalRevenue.FlatStyle = FlatStyle.System;
+            lblTotalRevenue.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalRevenue.ForeColor = Color.White;
+            lblTotalRevenue.Location = new Point(13, 107);
+            lblTotalRevenue.Name = "lblTotalRevenue";
+            lblTotalRevenue.Size = new Size(157, 20);
+            lblTotalRevenue.TabIndex = 37;
+            lblTotalRevenue.Text = "Total Revenue: ₱0.00";
             // 
-            // label5
+            // lblBestSeller
             // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Chocolate;
-            label5.FlatStyle = FlatStyle.System;
-            label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(30, 135);
-            label5.Name = "label5";
-            label5.Size = new Size(129, 20);
-            label5.TabIndex = 38;
-            label5.Text = "Best Seller: None";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.Black;
-            label10.Location = new Point(609, 120);
-            label10.Name = "label10";
-            label10.Size = new Size(45, 19);
-            label10.TabIndex = 43;
-            label10.Text = "Total";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.Black;
-            label9.Location = new Point(523, 120);
-            label9.Name = "label9";
-            label9.Size = new Size(70, 19);
-            label9.TabIndex = 42;
-            label9.Text = "Quantity";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.Black;
-            label7.Location = new Point(421, 120);
-            label7.Name = "label7";
-            label7.Size = new Size(64, 19);
-            label7.TabIndex = 41;
-            label7.Text = "Product";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.Black;
-            label6.Location = new Point(323, 120);
-            label6.Name = "label6";
-            label6.Size = new Size(77, 19);
-            label6.TabIndex = 40;
-            label6.Text = "Customer";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.Black;
-            label8.Location = new Point(245, 120);
-            label8.Name = "label8";
-            label8.Size = new Size(42, 19);
-            label8.TabIndex = 39;
-            label8.Text = "Date";
+            lblBestSeller.AutoSize = true;
+            lblBestSeller.BackColor = Color.Chocolate;
+            lblBestSeller.FlatStyle = FlatStyle.System;
+            lblBestSeller.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBestSeller.ForeColor = Color.White;
+            lblBestSeller.Location = new Point(30, 169);
+            lblBestSeller.Name = "lblBestSeller";
+            lblBestSeller.Size = new Size(129, 20);
+            lblBestSeller.TabIndex = 38;
+            lblBestSeller.Text = "Best Seller: None";
             // 
             // btnBack
             // 
@@ -238,20 +178,20 @@
             btnBack.UseVisualStyleBackColor = false;
             btnBack.Click += btnBack_Click;
             // 
-            // addItemBtn
+            // btnRefresh
             // 
-            addItemBtn.BackColor = Color.Chocolate;
-            addItemBtn.FlatAppearance.BorderSize = 0;
-            addItemBtn.FlatAppearance.MouseOverBackColor = Color.Peru;
-            addItemBtn.FlatStyle = FlatStyle.Flat;
-            addItemBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            addItemBtn.ForeColor = Color.White;
-            addItemBtn.Location = new Point(48, 364);
-            addItemBtn.Name = "addItemBtn";
-            addItemBtn.Size = new Size(140, 40);
-            addItemBtn.TabIndex = 34;
-            addItemBtn.Text = "Refresh Report";
-            addItemBtn.UseVisualStyleBackColor = false;
+            btnRefresh.BackColor = Color.Chocolate;
+            btnRefresh.FlatAppearance.BorderSize = 0;
+            btnRefresh.FlatAppearance.MouseOverBackColor = Color.Peru;
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRefresh.ForeColor = Color.White;
+            btnRefresh.Location = new Point(48, 364);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(140, 40);
+            btnRefresh.TabIndex = 34;
+            btnRefresh.Text = "Refresh Report";
+            btnRefresh.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -259,17 +199,19 @@
             label2.BackColor = Color.White;
             label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.SaddleBrown;
-            label2.Location = new Point(421, 78);
+            label2.Location = new Point(411, 73);
             label2.Name = "label2";
             label2.Size = new Size(136, 20);
             label2.TabIndex = 12;
             label2.Text = "Sales Transactions";
             // 
-            // dataGridView1
+            // dgvSales
             // 
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvSales.AllowUserToAddRows = false;
+            dgvSales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvSales.BackgroundColor = Color.White;
+            dgvSales.BorderStyle = BorderStyle.None;
+            dgvSales.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.SaddleBrown;
             dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F);
@@ -277,8 +219,9 @@
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgvSales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSales.Columns.AddRange(new DataGridViewColumn[] { colDate, colCustomer, colProduct, colQuantity, colTotal });
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = Color.Peru;
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
@@ -286,13 +229,45 @@
             dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.GridColor = Color.Gainsboro;
-            dataGridView1.Location = new Point(238, 71);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(459, 382);
-            dataGridView1.TabIndex = 11;
+            dgvSales.DefaultCellStyle = dataGridViewCellStyle4;
+            dgvSales.EnableHeadersVisualStyles = false;
+            dgvSales.GridColor = Color.Gainsboro;
+            dgvSales.Location = new Point(207, 96);
+            dgvSales.Name = "dgvSales";
+            dgvSales.ReadOnly = true;
+            dgvSales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvSales.Size = new Size(490, 357);
+            dgvSales.TabIndex = 11;
+            // 
+            // colDate
+            // 
+            colDate.HeaderText = "Date";
+            colDate.Name = "colDate";
+            colDate.ReadOnly = true;
+            // 
+            // colCustomer
+            // 
+            colCustomer.HeaderText = "Customer";
+            colCustomer.Name = "colCustomer";
+            colCustomer.ReadOnly = true;
+            // 
+            // colProduct
+            // 
+            colProduct.HeaderText = "Product";
+            colProduct.Name = "colProduct";
+            colProduct.ReadOnly = true;
+            // 
+            // colQuantity
+            // 
+            colQuantity.HeaderText = "Quantity";
+            colQuantity.Name = "colQuantity";
+            colQuantity.ReadOnly = true;
+            // 
+            // colTotal
+            // 
+            colTotal.HeaderText = "Total";
+            colTotal.Name = "colTotal";
+            colTotal.ReadOnly = true;
             // 
             // label1
             // 
@@ -325,7 +300,7 @@
             scrollableMenu.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvSales).EndInit();
             ResumeLayout(false);
         }
 
@@ -336,19 +311,19 @@
         private Panel scrollableMenu;
         private Label label1;
         private Label label2;
-        private DataGridView dataGridView1;
+        private DataGridView dgvSales;
         private Button btnBack;
-        private Button addItemBtn;
-        private Label label5;
-        private Label label4;
-        private Label label3;
-        private Label label10;
-        private Label label9;
-        private Label label7;
-        private Label label6;
-        private Label label8;
+        private Button btnRefresh;
+        private Label lblBestSeller;
+        private Label lblTotalRevenue;
+        private Label lblTotalOrders;
         private Panel panel1;
         private Panel panel2;
         private Label label11;
+        private DataGridViewTextBoxColumn colDate;
+        private DataGridViewTextBoxColumn colCustomer;
+        private DataGridViewTextBoxColumn colProduct;
+        private DataGridViewTextBoxColumn colQuantity;
+        private DataGridViewTextBoxColumn colTotal;
     }
 }

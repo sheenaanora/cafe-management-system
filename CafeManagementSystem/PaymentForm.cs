@@ -15,6 +15,7 @@ namespace CafeManagementSystem
         public PaymentForm()
         {
             InitializeComponent();
+
         }
 
         private void scrollableMenu_Paint(object sender, PaintEventArgs e)
