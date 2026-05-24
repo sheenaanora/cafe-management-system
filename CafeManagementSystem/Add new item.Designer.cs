@@ -356,9 +356,9 @@
             label2.ForeColor = Color.Black;
             label2.Location = new Point(164, 39);
             label2.Name = "label2";
-            label2.Size = new Size(149, 15);
+            label2.Size = new Size(152, 15);
             label2.TabIndex = 39;
-            label2.Text = "Manage coffee menu items";
+            label2.Text = "Manage coffee menu items.";
             // 
             // btnUpdate
             // 

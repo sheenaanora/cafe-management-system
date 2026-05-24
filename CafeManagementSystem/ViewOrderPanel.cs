@@ -28,18 +28,16 @@ namespace CafeManagementSystem
             dgvOrders.DefaultCellStyle.SelectionBackColor = Color.Peru;
             dgvOrders.DefaultCellStyle.SelectionForeColor = Color.White;
 
-            dgvOrders.Rows.Add("001", "Latte", "₱150", "Pending", "Sheena");
-            dgvOrders.Rows.Add("002", "Espresso", "₱120", "Preparing", "John");
-        }
+            dgvOrders.ReadOnly = true;
+            dgvOrders.AllowUserToAddRows = false;
+            dgvOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-        private void label22_Click(object sender, EventArgs e)
-        {
+            cmbStatus.Items.Clear();
 
-        }
-
-        private void ViewOrderPanel_Load(object sender, EventArgs e)
-        {
-
+            cmbStatus.Items.Add("Pending");
+            cmbStatus.Items.Add("Preparing");
+            cmbStatus.Items.Add("Ready");
+            cmbStatus.Items.Add("Completed");
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -51,7 +49,7 @@ namespace CafeManagementSystem
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (dgvOrders.CurrentRow != null)
+            if (dgvOrders.CurrentRow != null && !dgvOrders.CurrentRow.IsNewRow)
             {
                 dgvOrders.CurrentRow.Cells[3].Value = cmbStatus.Text;
 
@@ -65,7 +63,7 @@ namespace CafeManagementSystem
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if (dgvOrders.CurrentRow != null)
+            if (dgvOrders.CurrentRow != null && !dgvOrders.CurrentRow.IsNewRow)
             {
                 dgvOrders.Rows.Remove(dgvOrders.CurrentRow);
 

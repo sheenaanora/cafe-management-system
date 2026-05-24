@@ -37,21 +37,21 @@
             btnProducts = new Button();
             btnDashboard = new Button();
             scrollableMenu = new Panel();
+            label9 = new Label();
             label1 = new Label();
             panel4 = new Panel();
+            label7 = new Label();
             label6 = new Label();
             panel3 = new Panel();
+            label8 = new Label();
             label5 = new Label();
             panel2 = new Panel();
+            label2 = new Label();
             label4 = new Label();
             panel1 = new Panel();
             pictureBox5 = new PictureBox();
             label14 = new Label();
             label3 = new Label();
-            label2 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
             MenuPanel.SuspendLayout();
             scrollableMenu.SuspendLayout();
             panel4.SuspendLayout();
@@ -174,11 +174,22 @@
             scrollableMenu.Size = new Size(710, 498);
             scrollableMenu.TabIndex = 6;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.Black;
+            label9.Location = new Point(176, 45);
+            label9.Name = "label9";
+            label9.Size = new Size(328, 15);
+            label9.TabIndex = 2;
+            label9.Text = "Manage products, orders, and sales in one admin dashboard.";
+            // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.SaddleBrown;
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(220, 20);
             label1.Name = "label1";
             label1.Size = new Size(230, 25);
@@ -196,11 +207,22 @@
             panel4.Size = new Size(180, 130);
             panel4.TabIndex = 2;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.Black;
+            label7.Location = new Point(65, 55);
+            label7.Name = "label7";
+            label7.Size = new Size(62, 25);
+            label7.TabIndex = 2;
+            label7.Text = "₱0.00";
+            // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.SaddleBrown;
+            label6.ForeColor = Color.Black;
             label6.Location = new Point(6, 10);
             label6.Name = "label6";
             label6.Size = new Size(169, 25);
@@ -218,11 +240,22 @@
             panel3.Size = new Size(180, 130);
             panel3.TabIndex = 1;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.Black;
+            label8.Location = new Point(80, 55);
+            label8.Name = "label8";
+            label8.Size = new Size(23, 25);
+            label8.TabIndex = 3;
+            label8.Text = "0";
+            // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.SaddleBrown;
+            label5.ForeColor = Color.Black;
             label5.Location = new Point(-5, 11);
             label5.Name = "label5";
             label5.Size = new Size(190, 25);
@@ -240,11 +273,22 @@
             panel2.Size = new Size(180, 130);
             panel2.TabIndex = 0;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(84, 55);
+            label2.Name = "label2";
+            label2.Size = new Size(23, 25);
+            label2.TabIndex = 1;
+            label2.Text = "0";
+            // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.SaddleBrown;
+            label4.ForeColor = Color.Black;
             label4.Location = new Point(27, 11);
             label4.Name = "label4";
             label4.Size = new Size(124, 25);
@@ -294,50 +338,6 @@
             label3.Size = new Size(156, 15);
             label3.TabIndex = 6;
             label3.Text = "Coffee Shop Administrator";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.SaddleBrown;
-            label2.Location = new Point(84, 55);
-            label2.Name = "label2";
-            label2.Size = new Size(23, 25);
-            label2.TabIndex = 1;
-            label2.Text = "0";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.SaddleBrown;
-            label7.Location = new Point(65, 55);
-            label7.Name = "label7";
-            label7.Size = new Size(62, 25);
-            label7.TabIndex = 2;
-            label7.Text = "₱0.00";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.SaddleBrown;
-            label8.Location = new Point(80, 55);
-            label8.Name = "label8";
-            label8.Size = new Size(23, 25);
-            label8.TabIndex = 3;
-            label8.Text = "0";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.SaddleBrown;
-            label9.Location = new Point(176, 45);
-            label9.Name = "label9";
-            label9.Size = new Size(328, 15);
-            label9.TabIndex = 2;
-            label9.Text = "Manage products, orders, and sales in one admin dashboard.";
             // 
             // AdminPanel
             // 
