@@ -9,7 +9,7 @@ namespace CafeManagementSystem
     public partial class Menu : Form
     {
         string insertQuery = "INSERT INTO OrderTable (CustomerID, Quantity, ItemID) VALUES (@CustomerID, @Quantity, @ItemID)";
-        private const string connectionString = "Data Source=CODING-0\\SQLEXPRESS;Initial Catalog=database_project;Integrated Security=True";
+        private const string connectionString = "";
         string itemCountQuery = "select count(ItemID) from OrderTable where CustomerID=@CustomerId";
 
         OrderPanel orderPanel;
@@ -36,7 +36,8 @@ namespace CafeManagementSystem
             pnlNav.Top = btnMenu.Top;
             pnlNav.Left = btnMenu.Left;
             btnMenu.BackColor = Color.FromArgb(46, 51, 73);
-            AddItemsToCategories();
+            //AddItemsToCategories();
+            /*
             if (functionForItemCount() == 0)
             {
                 itemCount.Hide();
@@ -45,7 +46,7 @@ namespace CafeManagementSystem
             {
                 itemCount.Show();
             }
-
+            */
             orderPanel = new OrderPanel();
             loginForm = new LoginForm();
         }
@@ -177,7 +178,8 @@ namespace CafeManagementSystem
             pnlNav.Top = btnMenu.Top;
             pnlNav.Left = btnMenu.Left;
             btnMenu.BackColor = Color.FromArgb(46, 51, 73);
-            orderPanel.loadOrderFromDB();
+            //orderPanel.loadOrderFromDB();
+            /*
             if (functionForItemCount() == 0)
             {
                 itemCount.Hide();
@@ -186,7 +188,8 @@ namespace CafeManagementSystem
             {
                 itemCount.Show();
                 functionForItemCount();
-            }
+           }
+            */
             this.scrollableMenu.Show();
 
         }
@@ -197,7 +200,7 @@ namespace CafeManagementSystem
             pnlNav.Top = btnOrder.Top;
             pnlNav.Left = btnOrder.Left;
             btnOrder.BackColor = Color.FromArgb(46, 51, 73);
-            orderPanel.loadOrderFromDB();
+            //orderPanel.loadOrderFromDB();
             this.scrollableMenu.Hide();
             itemCount.Hide();
             Controls.Add(orderPanel.nonScrollablePanel);
