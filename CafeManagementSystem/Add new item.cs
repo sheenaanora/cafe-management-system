@@ -16,22 +16,20 @@ namespace CafeManagementSystem
         {
             InitializeComponent();
 
+            cmbCategory.Items.Clear();
+            cmbCategory.Items.Add("Hot Drinks");
+            cmbCategory.Items.Add("Cold Drinks");
+            cmbCategory.Items.Add("Frappe");
+            cmbCategory.Items.Add("Non-Coffee");
+
             dgvProducts.DefaultCellStyle.ForeColor = Color.Black;
             dgvProducts.DefaultCellStyle.BackColor = Color.White;
-
             dgvProducts.RowsDefaultCellStyle.ForeColor = Color.Black;
             dgvProducts.RowsDefaultCellStyle.BackColor = Color.White;
-
             dgvProducts.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
             dgvProducts.AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke;
-
             dgvProducts.DefaultCellStyle.SelectionBackColor = Color.Peru;
             dgvProducts.DefaultCellStyle.SelectionForeColor = Color.White;
-        }
-
-        private void panelContainingAddNewItem_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -44,14 +42,14 @@ namespace CafeManagementSystem
         private void BtnSave_Click(object sender, EventArgs e)
         {
             dgvProducts.Rows.Add(
-            txtCoffeeName.Text,
-            txtPrice.Text
-        );
+                txtCoffeeName.Text,
+                txtDescription.Text,
+                txtPrice.Text,
+                cmbCategory.Text
+            );
 
-            MessageBox.Show("Product Added Successfully!");
-
-            txtCoffeeName.Clear();
-            txtPrice.Clear();
+            MessageBox.Show("Product added successfully!");
+            ClearFields();
         }
 
         private void dgvProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -59,7 +57,9 @@ namespace CafeManagementSystem
             if (e.RowIndex >= 0 && !dgvProducts.Rows[e.RowIndex].IsNewRow)
             {
                 txtCoffeeName.Text = dgvProducts.Rows[e.RowIndex].Cells[0].Value?.ToString();
-                txtPrice.Text = dgvProducts.Rows[e.RowIndex].Cells[1].Value?.ToString();
+                txtDescription.Text = dgvProducts.Rows[e.RowIndex].Cells[1].Value?.ToString();
+                txtPrice.Text = dgvProducts.Rows[e.RowIndex].Cells[2].Value?.ToString();
+                cmbCategory.Text = dgvProducts.Rows[e.RowIndex].Cells[3].Value?.ToString();
             }
         }
 
@@ -68,12 +68,12 @@ namespace CafeManagementSystem
             if (dgvProducts.CurrentRow != null && !dgvProducts.CurrentRow.IsNewRow)
             {
                 dgvProducts.CurrentRow.Cells[0].Value = txtCoffeeName.Text;
-                dgvProducts.CurrentRow.Cells[1].Value = txtPrice.Text;
+                dgvProducts.CurrentRow.Cells[1].Value = txtDescription.Text;
+                dgvProducts.CurrentRow.Cells[2].Value = txtPrice.Text;
+                dgvProducts.CurrentRow.Cells[3].Value = cmbCategory.Text;
 
                 MessageBox.Show("Product updated successfully!");
-
-                txtCoffeeName.Clear();
-                txtPrice.Clear();
+                ClearFields();
             }
             else
             {
@@ -87,15 +87,21 @@ namespace CafeManagementSystem
             {
                 dgvProducts.Rows.Remove(dgvProducts.CurrentRow);
 
-                txtCoffeeName.Clear();
-                txtPrice.Clear();
-
                 MessageBox.Show("Product deleted successfully!");
+                ClearFields();
             }
             else
             {
                 MessageBox.Show("Please select a product to delete.");
             }
+        }
+
+        private void ClearFields()
+        {
+            txtCoffeeName.Clear();
+            txtDescription.Clear();
+            txtPrice.Clear();
+            cmbCategory.SelectedIndex = -1;
         }
     }
 }
