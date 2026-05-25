@@ -9,6 +9,8 @@ namespace CafeManagementSystem
 {
     public partial class ViewOrderPanel : Form
     {
+
+        private System.Windows.Forms.Timer refreshTimer = new System.Windows.Forms.Timer();
         public class Order
         {
             public string id { get; set; }
@@ -41,6 +43,15 @@ namespace CafeManagementSystem
             cmbStatus.Items.Add("Ready");
             cmbStatus.Items.Add("Completed");
 
+            LoadOrders();
+
+            refreshTimer.Interval = 5000;
+            refreshTimer.Tick += RefreshTimer_Tick;
+            refreshTimer.Start();
+        }
+
+        private void RefreshTimer_Tick(object sender, EventArgs e)
+        {
             LoadOrders();
         }
 
