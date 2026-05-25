@@ -69,7 +69,7 @@ namespace CafeManagementSystem
                 string destinationPath = Path.Combine(uploadFolder, fileName);
                 File.Copy(selectedImagePath, destinationPath, true);
 
-                savedImagePath = "http://localhost/coffee-api/uploads/" + fileName;
+                savedImagePath = "http://127.0.0.1:8001/uploads/" + fileName;
             }
 
             using (HttpClient client = new HttpClient())
@@ -86,7 +86,7 @@ namespace CafeManagementSystem
                 var content = new FormUrlEncodedContent(values);
 
                 HttpResponseMessage response = await client.PostAsync(
-                    "http://localhost/coffee-api/add_product.php",
+                    "http://127.0.0.1:8001/add_product.php",
                     content
                 );
 

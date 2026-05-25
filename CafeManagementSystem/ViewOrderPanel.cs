@@ -10,6 +10,7 @@ namespace CafeManagementSystem
 {
     public partial class ViewOrderPanel : Form
     {
+        private bool apiWarningShown = false;
         private List<Order> allOrders = new List<Order>();
         private System.Windows.Forms.Timer refreshTimer = new System.Windows.Forms.Timer();
         public class Order
@@ -65,14 +66,34 @@ namespace CafeManagementSystem
         {
             dgvOrders.Rows.Clear();
 
-            dgvOrders.Rows.Clear();
-
-            using (HttpClient client = new HttpClient())
+            try
             {
-                string json = await client.GetStringAsync("http://localhost/coffee-api/orders.php");
-                allOrders = JsonConvert.DeserializeObject<List<Order>>(json);
+                using (HttpClient client = new HttpClient())
+                {
+                    string json = await client.GetStringAsync("http://127.0.0.1:8001/orders.php");
 
-                ApplyOrderSearchAndFilter();
+                    allOrders = JsonConvert.DeserializeObject<List<Order>>(json);
+
+                    ApplyOrderSearchAndFilter();
+                }
+            }
+            catch
+            {
+                allOrders = new List<Order>();
+                dgvOrders.Rows.Clear();
+                lblTotalOrders.Text = "Total Orders: 0";
+
+                if (!apiWarningShown)
+                {
+                    apiWarningShown = true;
+
+                    MessageBox.Show(
+                        "API Server is Offline.\nNo order data loaded.",
+                        "Connection Warning",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                }
             }
         }
 
@@ -158,7 +179,7 @@ namespace CafeManagementSystem
                 var content = new FormUrlEncodedContent(values);
 
                 HttpResponseMessage response = await client.PostAsync(
-                    "http://localhost/coffee-api/update_order_status.php",
+                    "http://127.0.0.1:8001/update_order_status.php",
                     content
                 );
 
@@ -201,7 +222,7 @@ namespace CafeManagementSystem
                 var content = new FormUrlEncodedContent(values);
 
                 HttpResponseMessage response = await client.PostAsync(
-                    "http://localhost/coffee-api/delete_order.php",
+                    "http://127.0.0.1:8001/delete_order.php",
                     content
                 );
 
@@ -211,6 +232,27 @@ namespace CafeManagementSystem
 
             dgvOrders.Rows.Remove(dgvOrders.CurrentRow);
             lblTotalOrders.Text = "Total Orders: " + dgvOrders.Rows.Count;
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            AdminPanel dashboard = new AdminPanel();
+            dashboard.Show();
+            this.Hide();
+        }
+
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            Add_new_item products = new Add_new_item();
+            products.Show();
+            this.Hide();
+        }
+
+        private void btnOrders_Click(object sender, EventArgs e)
+        {
+            ViewOrderPanel orders = new ViewOrderPanel();
+            orders.Show();
+            this.Hide();
         }
     }
 }

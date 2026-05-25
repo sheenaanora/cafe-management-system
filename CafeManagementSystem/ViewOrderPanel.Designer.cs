@@ -112,6 +112,7 @@
             btnOrders.TabIndex = 5;
             btnOrders.Text = "ORDERS";
             btnOrders.UseVisualStyleBackColor = false;
+            btnOrders.Click += btnOrders_Click;
             // 
             // pnlNav
             // 
@@ -150,6 +151,7 @@
             btnProducts.TabIndex = 2;
             btnProducts.Text = "PRODUCTS";
             btnProducts.UseVisualStyleBackColor = false;
+            btnProducts.Click += btnProducts_Click;
             // 
             // btnDashboard
             // 
@@ -165,6 +167,7 @@
             btnDashboard.TabIndex = 1;
             btnDashboard.Text = "DASHBOARD";
             btnDashboard.UseVisualStyleBackColor = false;
+            btnDashboard.Click += btnDashboard_Click;
             // 
             // panel
             // 

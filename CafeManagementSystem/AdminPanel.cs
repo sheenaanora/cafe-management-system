@@ -14,6 +14,7 @@ namespace CafeManagementSystem
 {
     public partial class AdminPanel : Form
     {
+        private bool apiWarningShown = false;
         public AdminPanel()
         {
             InitializeComponent();
@@ -72,19 +73,40 @@ namespace CafeManagementSystem
 
         private async void LoadDashboard()
         {
-            using (HttpClient client = new HttpClient())
+            try
             {
-                string response = await client.GetStringAsync(
-                    "http://localhost/coffee-api/dashboard.php"
-                );
+                using (HttpClient client = new HttpClient())
+                {
+                    string response = await client.GetStringAsync(
+                        "http://127.0.0.1:8001/dashboard.php"
+                    );
 
-                JObject data = JObject.Parse(response);
+                    JObject data = JObject.Parse(response);
 
-                lblProducts.Text = data["total_products"].ToString();
-                lblOrders.Text = data["total_orders"].ToString();
+                    lblProducts.Text = data["total_products"].ToString();
+                    lblOrders.Text = data["total_orders"].ToString();
 
-                decimal sales = Convert.ToDecimal(data["total_sales"]);
-                lblSales.Text = "₱" + sales.ToString("N2");
+                    decimal sales = Convert.ToDecimal(data["total_sales"]);
+                    lblSales.Text = "₱" + sales.ToString("N2");
+                }
+            }
+            catch
+            {
+                lblProducts.Text = "0";
+                lblOrders.Text = "0";
+                lblSales.Text = "₱0.00";
+
+                if (!apiWarningShown)
+                {
+                    apiWarningShown = true;
+
+                    MessageBox.Show(
+                        "API Server is Offline.\nNo dashboard data loaded.",
+                        "Connection Warning",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                }
             }
         }
     }
