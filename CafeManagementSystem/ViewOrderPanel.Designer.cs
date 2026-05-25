@@ -95,6 +95,7 @@
             btnSales.TabIndex = 6;
             btnSales.Text = "SALES";
             btnSales.UseVisualStyleBackColor = false;
+            btnSales.Visible = false;
             btnSales.Click += btnSales_Click;
             // 
             // btnOrders

@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Http;
+using System.IO;
 
 namespace CafeManagementSystem
 {
     public partial class Add_new_item : Form
     {
+        private string selectedImagePath = "";
+
         public Add_new_item()
         {
             InitializeComponent();
@@ -39,8 +43,57 @@ namespace CafeManagementSystem
             this.Hide();
         }
 
-        private void BtnSave_Click(object sender, EventArgs e)
+        private async void BtnSave_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtCoffeeName.Text) ||
+                string.IsNullOrWhiteSpace(txtDescription.Text) ||
+                string.IsNullOrWhiteSpace(txtPrice.Text) ||
+                string.IsNullOrWhiteSpace(cmbCategory.Text))
+            {
+                MessageBox.Show("Please complete all fields.");
+                return;
+            }
+
+            string savedImagePath = "";
+
+            if (!string.IsNullOrWhiteSpace(selectedImagePath))
+            {
+                string fileName = Path.GetFileName(selectedImagePath);
+                string uploadFolder = @"C:\xampp\htdocs\coffee-api\uploads";
+
+                if (!Directory.Exists(uploadFolder))
+                {
+                    Directory.CreateDirectory(uploadFolder);
+                }
+
+                string destinationPath = Path.Combine(uploadFolder, fileName);
+                File.Copy(selectedImagePath, destinationPath, true);
+
+                savedImagePath = "http://localhost/coffee-api/uploads/" + fileName;
+            }
+
+            using (HttpClient client = new HttpClient())
+            {
+                var values = new Dictionary<string, string>
+                {
+                    { "name", txtCoffeeName.Text },
+                    { "description", txtDescription.Text },
+                    { "price", txtPrice.Text },
+                    { "category", cmbCategory.Text },
+                    { "product_image", savedImagePath }
+                };
+
+                var content = new FormUrlEncodedContent(values);
+
+                HttpResponseMessage response = await client.PostAsync(
+                    "http://localhost/coffee-api/add_product.php",
+                    content
+                );
+
+                string result = await response.Content.ReadAsStringAsync();
+                MessageBox.Show(result);
+            }
+
             dgvProducts.Rows.Add(
                 txtCoffeeName.Text,
                 txtDescription.Text,
@@ -48,7 +101,6 @@ namespace CafeManagementSystem
                 cmbCategory.Text
             );
 
-            MessageBox.Show("Product added successfully!");
             ClearFields();
         }
 
@@ -102,6 +154,20 @@ namespace CafeManagementSystem
             txtDescription.Clear();
             txtPrice.Clear();
             cmbCategory.SelectedIndex = -1;
+        }
+
+        private void picProduct_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files|*.jpg;*.jpeg;*.png";
+
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                selectedImagePath = open.FileName;
+                picProduct.ImageLocation = open.FileName;
+                picProduct.Image = Image.FromFile(open.FileName);
+                picProduct.SizeMode = PictureBoxSizeMode.Zoom;
+            }
         }
     }
 }

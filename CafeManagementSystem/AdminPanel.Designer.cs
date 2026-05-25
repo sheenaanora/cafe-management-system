@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPanel));
             MenuPanel = new Panel();
             btnLogout = new Button();
-            btnSales = new Button();
             btnOrders = new Button();
             pnlNav = new Panel();
             btnPayment = new Button();
@@ -53,6 +52,7 @@
             pictureBox5 = new PictureBox();
             label14 = new Label();
             label3 = new Label();
+            btnSales = new Button();
             MenuPanel.SuspendLayout();
             scrollableMenu.SuspendLayout();
             panel4.SuspendLayout();
@@ -94,21 +94,6 @@
             btnLogout.Text = "LOGOUT";
             btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += btnLogout_Click;
-            // 
-            // btnSales
-            // 
-            btnSales.Dock = DockStyle.Top;
-            btnSales.FlatAppearance.BorderSize = 0;
-            btnSales.FlatStyle = FlatStyle.System;
-            btnSales.Font = new Font("Bahnschrift", 12F, FontStyle.Bold);
-            btnSales.ForeColor = Color.White;
-            btnSales.Location = new Point(0, 126);
-            btnSales.Name = "btnSales";
-            btnSales.Size = new Size(116, 42);
-            btnSales.TabIndex = 6;
-            btnSales.Text = "SALES";
-            btnSales.UseVisualStyleBackColor = true;
-            btnSales.Click += btnSales_Click;
             // 
             // btnOrders
             // 
@@ -359,6 +344,22 @@
             label3.TabIndex = 6;
             label3.Text = "Coffee Shop Administrator";
             // 
+            // btnSales
+            // 
+            btnSales.Dock = DockStyle.Top;
+            btnSales.FlatAppearance.BorderSize = 0;
+            btnSales.FlatStyle = FlatStyle.System;
+            btnSales.Font = new Font("Bahnschrift", 12F, FontStyle.Bold);
+            btnSales.ForeColor = Color.White;
+            btnSales.Location = new Point(0, 126);
+            btnSales.Name = "btnSales";
+            btnSales.Size = new Size(116, 42);
+            btnSales.TabIndex = 6;
+            btnSales.Text = "SALES";
+            btnSales.UseVisualStyleBackColor = true;
+            btnSales.Visible = false;
+            btnSales.Click += btnSales_Click;
+            // 
             // AdminPanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -401,7 +402,6 @@
         private Label label1;
         private Label label14;
         private PictureBox pictureBox5;
-        private Button btnSales;
         private Button btnOrders;
         private Button btnDashboard;
         private Panel panel4;
@@ -415,5 +415,6 @@
         private Label label2;
         private Label label9;
         private Button btnLogout;
+        private Button btnSales;
     }
 }

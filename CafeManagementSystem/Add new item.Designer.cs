@@ -430,6 +430,7 @@
             picProduct.SizeMode = PictureBoxSizeMode.Zoom;
             picProduct.TabIndex = 32;
             picProduct.TabStop = false;
+            picProduct.Click += picProduct_Click;
             // 
             // txtPrice
             // 
