@@ -114,17 +114,48 @@ namespace CafeManagementSystem
             dgvOrders.CurrentRow.Cells[4].Value = cmbStatus.Text;
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
+        private async void btnRemove_Click(object sender, EventArgs e)
         {
-            if (dgvOrders.CurrentRow != null && !dgvOrders.CurrentRow.IsNewRow)
-            {
-                dgvOrders.Rows.Remove(dgvOrders.CurrentRow);
-                MessageBox.Show("Order removed successfully!");
-            }
-            else
+            if (dgvOrders.CurrentRow == null || dgvOrders.CurrentRow.IsNewRow)
             {
                 MessageBox.Show("Please select an order.");
+                return;
             }
+
+            DialogResult confirm = MessageBox.Show(
+                "Are you sure you want to remove this order?",
+                "Confirm Remove",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (confirm != DialogResult.Yes)
+            {
+                return;
+            }
+
+            string orderId = dgvOrders.CurrentRow.Cells[0].Value.ToString();
+
+            using (HttpClient client = new HttpClient())
+            {
+                var values = new Dictionary<string, string>
+        {
+            { "id", orderId }
+        };
+
+                var content = new FormUrlEncodedContent(values);
+
+                HttpResponseMessage response = await client.PostAsync(
+                    "http://localhost/coffee-api/delete_order.php",
+                    content
+                );
+
+                string result = await response.Content.ReadAsStringAsync();
+                MessageBox.Show(result);
+            }
+
+            dgvOrders.Rows.Remove(dgvOrders.CurrentRow);
+            lblTotalOrders.Text = "Total Orders: " + dgvOrders.Rows.Count;
         }
     }
 }
