@@ -4,12 +4,13 @@ using System.Drawing;
 using System.Net.Http;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace CafeManagementSystem
 {
     public partial class ViewOrderPanel : Form
     {
-
+        private List<Order> allOrders = new List<Order>();
         private System.Windows.Forms.Timer refreshTimer = new System.Windows.Forms.Timer();
         public class Order
         {
@@ -37,11 +38,16 @@ namespace CafeManagementSystem
             dgvOrders.AllowUserToAddRows = false;
             dgvOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            cmbStatus.Items.Clear();
-            cmbStatus.Items.Add("Pending");
-            cmbStatus.Items.Add("Preparing");
-            cmbStatus.Items.Add("Ready");
-            cmbStatus.Items.Add("Completed");
+            cmbOrderFilter.Items.Clear();
+            cmbOrderFilter.Items.Add("All");
+            cmbOrderFilter.Items.Add("Pending");
+            cmbOrderFilter.Items.Add("Preparing");
+            cmbOrderFilter.Items.Add("Ready");
+            cmbOrderFilter.Items.Add("Completed");
+            cmbOrderFilter.SelectedIndex = 0;
+
+            txtOrderSearch.TextChanged += txtOrderSearch_TextChanged;
+            cmbOrderFilter.SelectedIndexChanged += cmbOrderFilter_SelectedIndexChanged;
 
             LoadOrders();
 
@@ -59,25 +65,63 @@ namespace CafeManagementSystem
         {
             dgvOrders.Rows.Clear();
 
+            dgvOrders.Rows.Clear();
+
             using (HttpClient client = new HttpClient())
             {
                 string json = await client.GetStringAsync("http://localhost/coffee-api/orders.php");
-                List<Order> orders = JsonConvert.DeserializeObject<List<Order>>(json);
+                allOrders = JsonConvert.DeserializeObject<List<Order>>(json);
 
-                foreach (Order order in orders)
-                {
-                    dgvOrders.Rows.Add(
-                        order.id,
-                        order.product_name,
-                         order.quantity,
-                        "₱" + order.total_price,
-                        order.status,
-                        order.customer_name
-                    );
-                }
-
-                lblTotalOrders.Text = "Total Orders: " + orders.Count;
+                ApplyOrderSearchAndFilter();
             }
+        }
+
+        private void ApplyOrderSearchAndFilter()
+        {
+            dgvOrders.Rows.Clear();
+
+            string search = txtOrderSearch.Text.Trim().ToLower();
+            string filter = cmbOrderFilter.Text;
+
+            var filteredOrders = allOrders.Where(order =>
+                (
+                    string.IsNullOrWhiteSpace(search) ||
+                    order.id.ToLower().Contains(search) ||
+                    order.product_name.ToLower().Contains(search) ||
+                    order.customer_name.ToLower().Contains(search) ||
+                    order.status.ToLower().Contains(search)
+                )
+                &&
+                (
+                    filter == "All" ||
+                    string.IsNullOrWhiteSpace(filter) ||
+                    order.status == filter
+                )
+            ).ToList();
+
+            foreach (Order order in filteredOrders)
+            {
+                dgvOrders.Rows.Add(
+                    order.id,
+                    order.product_name,
+                    order.quantity,
+                    "₱" + order.total_price,
+                    order.status,
+                    order.customer_name
+                );
+            }
+
+            lblTotalOrders.Text = "Total Orders: " + filteredOrders.Count;
+        }
+
+        private void txtOrderSearch_TextChanged(object sender, EventArgs e)
+        {
+            ApplyOrderSearchAndFilter();
+        }
+
+        private void cmbOrderFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyOrderSearchAndFilter();
         }
 
         private void btnBack_Click(object sender, EventArgs e)

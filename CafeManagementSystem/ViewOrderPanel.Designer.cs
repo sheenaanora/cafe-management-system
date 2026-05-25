@@ -40,13 +40,19 @@
             lblTotalOrders = new Label();
             label4 = new Label();
             label3 = new Label();
-            txtSearch = new TextBox();
+            txtOrderSearch = new TextBox();
             dgvOrders = new DataGridView();
+            colOrderId = new DataGridViewTextBoxColumn();
+            colProductName = new DataGridViewTextBoxColumn();
+            colQuantity = new DataGridViewTextBoxColumn();
+            colTotalPrice = new DataGridViewTextBoxColumn();
+            colStatus = new DataGridViewTextBoxColumn();
+            colCustomer = new DataGridViewTextBoxColumn();
             btnRemove = new Button();
             label1 = new Label();
             cmbStatus = new ComboBox();
             btnUpdate = new Button();
-            cmbFilter = new ComboBox();
+            cmbOrderFilter = new ComboBox();
             manageOrdersLabel = new Label();
             filterLabel = new Label();
             progressLabel = new Label();
@@ -54,12 +60,6 @@
             label5 = new Label();
             pictureBox5 = new PictureBox();
             label2 = new Label();
-            colOrderId = new DataGridViewTextBoxColumn();
-            colProductName = new DataGridViewTextBoxColumn();
-            colQuantity = new DataGridViewTextBoxColumn();
-            colTotalPrice = new DataGridViewTextBoxColumn();
-            colStatus = new DataGridViewTextBoxColumn();
-            colCustomer = new DataGridViewTextBoxColumn();
             MenuPanel.SuspendLayout();
             panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvOrders).BeginInit();
@@ -173,13 +173,13 @@
             panel.Controls.Add(lblTotalOrders);
             panel.Controls.Add(label4);
             panel.Controls.Add(label3);
-            panel.Controls.Add(txtSearch);
+            panel.Controls.Add(txtOrderSearch);
             panel.Controls.Add(dgvOrders);
             panel.Controls.Add(btnRemove);
             panel.Controls.Add(label1);
             panel.Controls.Add(cmbStatus);
             panel.Controls.Add(btnUpdate);
-            panel.Controls.Add(cmbFilter);
+            panel.Controls.Add(cmbOrderFilter);
             panel.Controls.Add(manageOrdersLabel);
             panel.Controls.Add(filterLabel);
             panel.Controls.Add(progressLabel);
@@ -222,14 +222,14 @@
             label3.TabIndex = 33;
             label3.Text = "Search:";
             // 
-            // txtSearch
+            // txtOrderSearch
             // 
-            txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSearch.Location = new Point(477, 11);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(220, 27);
-            txtSearch.TabIndex = 32;
+            txtOrderSearch.BorderStyle = BorderStyle.FixedSingle;
+            txtOrderSearch.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtOrderSearch.Location = new Point(477, 11);
+            txtOrderSearch.Name = "txtOrderSearch";
+            txtOrderSearch.Size = new Size(220, 27);
+            txtOrderSearch.TabIndex = 32;
             // 
             // dgvOrders
             // 
@@ -247,6 +247,42 @@
             dgvOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvOrders.Size = new Size(689, 230);
             dgvOrders.TabIndex = 31;
+            // 
+            // colOrderId
+            // 
+            colOrderId.HeaderText = "Order ID";
+            colOrderId.Name = "colOrderId";
+            colOrderId.ReadOnly = true;
+            // 
+            // colProductName
+            // 
+            colProductName.HeaderText = " Product Name";
+            colProductName.Name = "colProductName";
+            colProductName.ReadOnly = true;
+            // 
+            // colQuantity
+            // 
+            colQuantity.HeaderText = " Quantity";
+            colQuantity.Name = "colQuantity";
+            colQuantity.ReadOnly = true;
+            // 
+            // colTotalPrice
+            // 
+            colTotalPrice.HeaderText = "Total Price";
+            colTotalPrice.Name = "colTotalPrice";
+            colTotalPrice.ReadOnly = true;
+            // 
+            // colStatus
+            // 
+            colStatus.HeaderText = "Status";
+            colStatus.Name = "colStatus";
+            colStatus.ReadOnly = true;
+            // 
+            // colCustomer
+            // 
+            colCustomer.HeaderText = "Customer";
+            colCustomer.Name = "colCustomer";
+            colCustomer.ReadOnly = true;
             // 
             // btnRemove
             // 
@@ -301,14 +337,14 @@
             btnUpdate.UseVisualStyleBackColor = false;
             btnUpdate.Click += btnUpdate_Click;
             // 
-            // cmbFilter
+            // cmbOrderFilter
             // 
-            cmbFilter.FlatStyle = FlatStyle.Flat;
-            cmbFilter.FormattingEnabled = true;
-            cmbFilter.Location = new Point(477, 44);
-            cmbFilter.Name = "cmbFilter";
-            cmbFilter.Size = new Size(220, 23);
-            cmbFilter.TabIndex = 7;
+            cmbOrderFilter.FlatStyle = FlatStyle.Flat;
+            cmbOrderFilter.FormattingEnabled = true;
+            cmbOrderFilter.Location = new Point(477, 44);
+            cmbOrderFilter.Name = "cmbOrderFilter";
+            cmbOrderFilter.Size = new Size(220, 23);
+            cmbOrderFilter.TabIndex = 7;
             // 
             // manageOrdersLabel
             // 
@@ -388,42 +424,6 @@
             label2.TabIndex = 23;
             label2.Text = "Coffee Admin System";
             // 
-            // colOrderId
-            // 
-            colOrderId.HeaderText = "Order ID";
-            colOrderId.Name = "colOrderId";
-            colOrderId.ReadOnly = true;
-            // 
-            // colProductName
-            // 
-            colProductName.HeaderText = " Product Name";
-            colProductName.Name = "colProductName";
-            colProductName.ReadOnly = true;
-            // 
-            // colQuantity
-            // 
-            colQuantity.HeaderText = " Quantity";
-            colQuantity.Name = "colQuantity";
-            colQuantity.ReadOnly = true;
-            // 
-            // colTotalPrice
-            // 
-            colTotalPrice.HeaderText = "Total Price";
-            colTotalPrice.Name = "colTotalPrice";
-            colTotalPrice.ReadOnly = true;
-            // 
-            // colStatus
-            // 
-            colStatus.HeaderText = "Status";
-            colStatus.Name = "colStatus";
-            colStatus.ReadOnly = true;
-            // 
-            // colCustomer
-            // 
-            colCustomer.HeaderText = "Customer";
-            colCustomer.Name = "colCustomer";
-            colCustomer.ReadOnly = true;
-            // 
             // ViewOrderPanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -461,7 +461,7 @@
         private Button btnOrders;
         private Button btnSales;
         private Label progressLabel;
-        private ComboBox cmbFilter;
+        private ComboBox cmbOrderFilter;
         private Label filterLabel;
         private Label manageOrdersLabel;
         private Button btnUpdate;
@@ -470,7 +470,7 @@
         private Label label2;
         private Button btnRemove;
         private DataGridView dgvOrders;
-        private TextBox txtSearch;
+        private TextBox txtOrderSearch;
         private Label label3;
         private PictureBox pictureBox5;
         private Label label4;
