@@ -52,7 +52,7 @@ namespace CafeManagementSystem
 
             LoadOrders();
 
-            refreshTimer.Interval = 5000;
+            refreshTimer.Interval = 30000;
             refreshTimer.Tick += RefreshTimer_Tick;
             refreshTimer.Start();
         }
@@ -154,6 +154,8 @@ namespace CafeManagementSystem
 
         private async void btnUpdate_Click(object sender, EventArgs e)
         {
+            refreshTimer.Stop();
+
             if (dgvOrders.CurrentRow == null || dgvOrders.CurrentRow.IsNewRow)
             {
                 MessageBox.Show("Please select an order.");
@@ -187,11 +189,14 @@ namespace CafeManagementSystem
                 MessageBox.Show(result);
             }
 
-            dgvOrders.CurrentRow.Cells[4].Value = cmbStatus.Text;
+            LoadOrders();
+            refreshTimer.Start();
         }
 
         private async void btnRemove_Click(object sender, EventArgs e)
         {
+            refreshTimer.Stop();
+
             if (dgvOrders.CurrentRow == null || dgvOrders.CurrentRow.IsNewRow)
             {
                 MessageBox.Show("Please select an order.");
@@ -230,8 +235,8 @@ namespace CafeManagementSystem
                 MessageBox.Show(result);
             }
 
-            dgvOrders.Rows.Remove(dgvOrders.CurrentRow);
-            lblTotalOrders.Text = "Total Orders: " + dgvOrders.Rows.Count;
+            LoadOrders();
+            refreshTimer.Start();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
