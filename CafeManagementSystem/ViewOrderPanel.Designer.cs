@@ -37,16 +37,11 @@
             btnProducts = new Button();
             btnDashboard = new Button();
             panel = new Panel();
-            label6 = new Label();
+            lblTotalOrders = new Label();
             label4 = new Label();
             label3 = new Label();
             txtSearch = new TextBox();
             dgvOrders = new DataGridView();
-            colOrderId = new DataGridViewTextBoxColumn();
-            colProductName = new DataGridViewTextBoxColumn();
-            colTotalPrice = new DataGridViewTextBoxColumn();
-            colStatus = new DataGridViewTextBoxColumn();
-            colCustomer = new DataGridViewTextBoxColumn();
             btnRemove = new Button();
             label1 = new Label();
             cmbStatus = new ComboBox();
@@ -59,6 +54,12 @@
             label5 = new Label();
             pictureBox5 = new PictureBox();
             label2 = new Label();
+            colOrderId = new DataGridViewTextBoxColumn();
+            colProductName = new DataGridViewTextBoxColumn();
+            colQuantity = new DataGridViewTextBoxColumn();
+            colTotalPrice = new DataGridViewTextBoxColumn();
+            colStatus = new DataGridViewTextBoxColumn();
+            colCustomer = new DataGridViewTextBoxColumn();
             MenuPanel.SuspendLayout();
             panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvOrders).BeginInit();
@@ -96,7 +97,6 @@
             btnSales.Text = "SALES";
             btnSales.UseVisualStyleBackColor = false;
             btnSales.Visible = false;
-            btnSales.Click += btnSales_Click;
             // 
             // btnOrders
             // 
@@ -112,7 +112,6 @@
             btnOrders.TabIndex = 5;
             btnOrders.Text = "ORDERS";
             btnOrders.UseVisualStyleBackColor = false;
-            btnOrders.Click += btnOrders_Click;
             // 
             // pnlNav
             // 
@@ -151,7 +150,6 @@
             btnProducts.TabIndex = 2;
             btnProducts.Text = "PRODUCTS";
             btnProducts.UseVisualStyleBackColor = false;
-            btnProducts.Click += btnProducts_Click;
             // 
             // btnDashboard
             // 
@@ -167,13 +165,12 @@
             btnDashboard.TabIndex = 1;
             btnDashboard.Text = "DASHBOARD";
             btnDashboard.UseVisualStyleBackColor = false;
-            btnDashboard.Click += btnDashboard_Click;
             // 
             // panel
             // 
             panel.AutoScroll = true;
             panel.BackColor = Color.FromArgb(243, 233, 220);
-            panel.Controls.Add(label6);
+            panel.Controls.Add(lblTotalOrders);
             panel.Controls.Add(label4);
             panel.Controls.Add(label3);
             panel.Controls.Add(txtSearch);
@@ -191,17 +188,17 @@
             panel.Size = new Size(712, 498);
             panel.TabIndex = 6;
             // 
-            // label6
+            // lblTotalOrders
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.Black;
-            label6.Location = new Point(541, 107);
-            label6.Name = "label6";
-            label6.Size = new Size(119, 21);
-            label6.TabIndex = 41;
-            label6.Text = "Total Orders: 0";
-            label6.TextAlign = ContentAlignment.MiddleCenter;
+            lblTotalOrders.AutoSize = true;
+            lblTotalOrders.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalOrders.ForeColor = Color.Black;
+            lblTotalOrders.Location = new Point(541, 107);
+            lblTotalOrders.Name = "lblTotalOrders";
+            lblTotalOrders.Size = new Size(119, 21);
+            lblTotalOrders.TabIndex = 41;
+            lblTotalOrders.Text = "Total Orders: 0";
+            lblTotalOrders.TextAlign = ContentAlignment.MiddleRight;
             // 
             // label4
             // 
@@ -233,7 +230,6 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(220, 27);
             txtSearch.TabIndex = 32;
-            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // dgvOrders
             // 
@@ -241,46 +237,16 @@
             dgvOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvOrders.BackgroundColor = Color.White;
             dgvOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvOrders.Columns.AddRange(new DataGridViewColumn[] { colOrderId, colProductName, colTotalPrice, colStatus, colCustomer });
+            dgvOrders.Columns.AddRange(new DataGridViewColumn[] { colOrderId, colProductName, colQuantity, colTotalPrice, colStatus, colCustomer });
             dgvOrders.EnableHeadersVisualStyles = false;
             dgvOrders.GridColor = Color.Gainsboro;
-            dgvOrders.Location = new Point(39, 142);
+            dgvOrders.Location = new Point(8, 142);
             dgvOrders.MultiSelect = false;
             dgvOrders.Name = "dgvOrders";
             dgvOrders.ReadOnly = true;
             dgvOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvOrders.Size = new Size(658, 230);
+            dgvOrders.Size = new Size(689, 230);
             dgvOrders.TabIndex = 31;
-            // 
-            // colOrderId
-            // 
-            colOrderId.HeaderText = "Order ID";
-            colOrderId.Name = "colOrderId";
-            colOrderId.ReadOnly = true;
-            // 
-            // colProductName
-            // 
-            colProductName.HeaderText = " Product Name";
-            colProductName.Name = "colProductName";
-            colProductName.ReadOnly = true;
-            // 
-            // colTotalPrice
-            // 
-            colTotalPrice.HeaderText = "Total Price";
-            colTotalPrice.Name = "colTotalPrice";
-            colTotalPrice.ReadOnly = true;
-            // 
-            // colStatus
-            // 
-            colStatus.HeaderText = "Status";
-            colStatus.Name = "colStatus";
-            colStatus.ReadOnly = true;
-            // 
-            // colCustomer
-            // 
-            colCustomer.HeaderText = "Customer";
-            colCustomer.Name = "colCustomer";
-            colCustomer.ReadOnly = true;
             // 
             // btnRemove
             // 
@@ -422,6 +388,42 @@
             label2.TabIndex = 23;
             label2.Text = "Coffee Admin System";
             // 
+            // colOrderId
+            // 
+            colOrderId.HeaderText = "Order ID";
+            colOrderId.Name = "colOrderId";
+            colOrderId.ReadOnly = true;
+            // 
+            // colProductName
+            // 
+            colProductName.HeaderText = " Product Name";
+            colProductName.Name = "colProductName";
+            colProductName.ReadOnly = true;
+            // 
+            // colQuantity
+            // 
+            colQuantity.HeaderText = " Quantity";
+            colQuantity.Name = "colQuantity";
+            colQuantity.ReadOnly = true;
+            // 
+            // colTotalPrice
+            // 
+            colTotalPrice.HeaderText = "Total Price";
+            colTotalPrice.Name = "colTotalPrice";
+            colTotalPrice.ReadOnly = true;
+            // 
+            // colStatus
+            // 
+            colStatus.HeaderText = "Status";
+            colStatus.Name = "colStatus";
+            colStatus.ReadOnly = true;
+            // 
+            // colCustomer
+            // 
+            colCustomer.HeaderText = "Customer";
+            colCustomer.Name = "colCustomer";
+            colCustomer.ReadOnly = true;
+            // 
             // ViewOrderPanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -468,16 +470,17 @@
         private Label label2;
         private Button btnRemove;
         private DataGridView dgvOrders;
-        private DataGridViewTextBoxColumn colOrderId;
-        private DataGridViewTextBoxColumn colProductName;
-        private DataGridViewTextBoxColumn colTotalPrice;
-        private DataGridViewTextBoxColumn colStatus;
-        private DataGridViewTextBoxColumn colCustomer;
         private TextBox txtSearch;
         private Label label3;
         private PictureBox pictureBox5;
         private Label label4;
         private Label label5;
-        private Label label6;
+        private Label lblTotalOrders;
+        private DataGridViewTextBoxColumn colOrderId;
+        private DataGridViewTextBoxColumn colProductName;
+        private DataGridViewTextBoxColumn colQuantity;
+        private DataGridViewTextBoxColumn colTotalPrice;
+        private DataGridViewTextBoxColumn colStatus;
+        private DataGridViewTextBoxColumn colCustomer;
     }
 }
