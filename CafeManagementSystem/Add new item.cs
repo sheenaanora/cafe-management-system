@@ -9,12 +9,27 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace CafeManagementSystem
 {
     public partial class Add_new_item : Form
     {
+
+        public class Product
+        {
+            public string id { get; set; }
+            public string coffee_name { get; set; }
+            public string description { get; set; }
+            public string price { get; set; }
+            public string category { get; set; }
+            public string product_image { get; set; }
+        }
+
+        private List<Product> productList = new List<Product>();
         private string selectedImagePath = "";
+        private string selectedProductId = "";
+        private string currentImageUrl = "";
 
         public Add_new_item()
         {
@@ -34,6 +49,8 @@ namespace CafeManagementSystem
             dgvProducts.AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke;
             dgvProducts.DefaultCellStyle.SelectionBackColor = Color.Peru;
             dgvProducts.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            LoadProducts();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -94,12 +111,7 @@ namespace CafeManagementSystem
                 MessageBox.Show(result);
             }
 
-            dgvProducts.Rows.Add(
-                txtCoffeeName.Text,
-                txtDescription.Text,
-                txtPrice.Text,
-                cmbCategory.Text
-            );
+            LoadProducts();
 
             ClearFields();
         }
@@ -108,44 +120,111 @@ namespace CafeManagementSystem
         {
             if (e.RowIndex >= 0 && !dgvProducts.Rows[e.RowIndex].IsNewRow)
             {
-                txtCoffeeName.Text = dgvProducts.Rows[e.RowIndex].Cells[0].Value?.ToString();
-                txtDescription.Text = dgvProducts.Rows[e.RowIndex].Cells[1].Value?.ToString();
-                txtPrice.Text = dgvProducts.Rows[e.RowIndex].Cells[2].Value?.ToString();
-                cmbCategory.Text = dgvProducts.Rows[e.RowIndex].Cells[3].Value?.ToString();
+                Product selectedProduct = productList[e.RowIndex];
+
+                selectedProductId = selectedProduct.id;
+                currentImageUrl = selectedProduct.product_image;
+
+                txtCoffeeName.Text = selectedProduct.coffee_name;
+                txtDescription.Text = selectedProduct.description;
+                txtPrice.Text = selectedProduct.price;
+                cmbCategory.Text = selectedProduct.category;
             }
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private async void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (dgvProducts.CurrentRow != null && !dgvProducts.CurrentRow.IsNewRow)
-            {
-                dgvProducts.CurrentRow.Cells[0].Value = txtCoffeeName.Text;
-                dgvProducts.CurrentRow.Cells[1].Value = txtDescription.Text;
-                dgvProducts.CurrentRow.Cells[2].Value = txtPrice.Text;
-                dgvProducts.CurrentRow.Cells[3].Value = cmbCategory.Text;
-
-                MessageBox.Show("Product updated successfully!");
-                ClearFields();
-            }
-            else
+            if (string.IsNullOrWhiteSpace(selectedProductId))
             {
                 MessageBox.Show("Please select a product to update.");
+                return;
             }
+
+            string savedImagePath = currentImageUrl;
+
+            if (!string.IsNullOrWhiteSpace(selectedImagePath))
+            {
+                string fileName = Path.GetFileName(selectedImagePath);
+                string uploadFolder = @"C:\xampp\htdocs\coffee-api\uploads";
+
+                if (!Directory.Exists(uploadFolder))
+                {
+                    Directory.CreateDirectory(uploadFolder);
+                }
+
+                string destinationPath = Path.Combine(uploadFolder, fileName);
+                File.Copy(selectedImagePath, destinationPath, true);
+
+                savedImagePath = "http://127.0.0.1:8001/uploads/" + fileName;
+            }
+
+            using (HttpClient client = new HttpClient())
+            {
+                var values = new Dictionary<string, string>
+        {
+            { "id", selectedProductId },
+            { "name", txtCoffeeName.Text },
+            { "description", txtDescription.Text },
+            { "price", txtPrice.Text },
+            { "category", cmbCategory.Text },
+            { "product_image", savedImagePath }
+        };
+
+                var content = new FormUrlEncodedContent(values);
+
+                HttpResponseMessage response = await client.PostAsync(
+                    "http://127.0.0.1:8001/update_product.php",
+                    content
+                );
+
+                string result = await response.Content.ReadAsStringAsync();
+                MessageBox.Show(result);
+            }
+
+            ClearFields();
+            LoadProducts();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private async void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dgvProducts.CurrentRow != null && !dgvProducts.CurrentRow.IsNewRow)
-            {
-                dgvProducts.Rows.Remove(dgvProducts.CurrentRow);
-
-                MessageBox.Show("Product deleted successfully!");
-                ClearFields();
-            }
-            else
+            if (string.IsNullOrWhiteSpace(selectedProductId))
             {
                 MessageBox.Show("Please select a product to delete.");
+                return;
             }
+
+            DialogResult confirm = MessageBox.Show(
+                "Are you sure you want to delete this product?",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (confirm != DialogResult.Yes)
+            {
+                return;
+            }
+
+            using (HttpClient client = new HttpClient())
+            {
+                var values = new Dictionary<string, string>
+        {
+            { "id", selectedProductId }
+        };
+
+                var content = new FormUrlEncodedContent(values);
+
+                HttpResponseMessage response = await client.PostAsync(
+                    "http://127.0.0.1:8001/delete_product.php",
+                    content
+                );
+
+                string result = await response.Content.ReadAsStringAsync();
+                MessageBox.Show(result);
+            }
+
+            LoadProducts();
+            ClearFields();
         }
 
         private void ClearFields()
@@ -154,6 +233,37 @@ namespace CafeManagementSystem
             txtDescription.Clear();
             txtPrice.Clear();
             cmbCategory.SelectedIndex = -1;
+            selectedProductId = "";
+            selectedImagePath = "";
+            currentImageUrl = "";
+            picProduct.Image = null;
+        }
+
+        private async void LoadProducts()
+        {
+            dgvProducts.Rows.Clear();
+
+            using (HttpClient client = new HttpClient())
+            {
+                string json = await client.GetStringAsync(
+                    "http://127.0.0.1:8001/products.php"
+                );
+
+                List<Product> products =
+                    JsonConvert.DeserializeObject<List<Product>>(json);
+
+                productList = products;
+
+                foreach (Product product in products)
+                {
+                    dgvProducts.Rows.Add(
+                        product.coffee_name,
+                        product.description,
+                        product.price,
+                        product.category
+                    );
+                }
+            }
         }
 
         private void picProduct_Click(object sender, EventArgs e)
