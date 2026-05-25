@@ -76,17 +76,42 @@ namespace CafeManagementSystem
             this.Hide();
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private async void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (dgvOrders.CurrentRow != null && !dgvOrders.CurrentRow.IsNewRow)
-            {
-                dgvOrders.CurrentRow.Cells[4].Value = cmbStatus.Text;
-                MessageBox.Show("Order status updated successfully!");
-            }
-            else
+            if (dgvOrders.CurrentRow == null || dgvOrders.CurrentRow.IsNewRow)
             {
                 MessageBox.Show("Please select an order.");
+                return;
             }
+
+            if (string.IsNullOrWhiteSpace(cmbStatus.Text))
+            {
+                MessageBox.Show("Please select a status.");
+                return;
+            }
+
+            string orderId = dgvOrders.CurrentRow.Cells[0].Value.ToString();
+
+            using (HttpClient client = new HttpClient())
+            {
+                var values = new Dictionary<string, string>
+        {
+            { "id", orderId },
+            { "status", cmbStatus.Text }
+        };
+
+                var content = new FormUrlEncodedContent(values);
+
+                HttpResponseMessage response = await client.PostAsync(
+                    "http://localhost/coffee-api/update_order_status.php",
+                    content
+                );
+
+                string result = await response.Content.ReadAsStringAsync();
+                MessageBox.Show(result);
+            }
+
+            dgvOrders.CurrentRow.Cells[4].Value = cmbStatus.Text;
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
