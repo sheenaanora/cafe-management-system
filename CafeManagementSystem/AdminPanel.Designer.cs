@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPanel));
             MenuPanel = new Panel();
             btnLogout = new Button();
+            btnSales = new Button();
             btnOrders = new Button();
             pnlNav = new Panel();
             btnPayment = new Button();
@@ -40,19 +41,18 @@
             label9 = new Label();
             label1 = new Label();
             panel4 = new Panel();
-            label7 = new Label();
+            lblSales = new Label();
             label6 = new Label();
             panel3 = new Panel();
-            label8 = new Label();
+            lblOrders = new Label();
             label5 = new Label();
             panel2 = new Panel();
-            label2 = new Label();
+            lblProducts = new Label();
             label4 = new Label();
             panel1 = new Panel();
             pictureBox5 = new PictureBox();
             label14 = new Label();
             label3 = new Label();
-            btnSales = new Button();
             MenuPanel.SuspendLayout();
             scrollableMenu.SuspendLayout();
             panel4.SuspendLayout();
@@ -94,6 +94,22 @@
             btnLogout.Text = "LOGOUT";
             btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += btnLogout_Click;
+            // 
+            // btnSales
+            // 
+            btnSales.Dock = DockStyle.Top;
+            btnSales.FlatAppearance.BorderSize = 0;
+            btnSales.FlatStyle = FlatStyle.System;
+            btnSales.Font = new Font("Bahnschrift", 12F, FontStyle.Bold);
+            btnSales.ForeColor = Color.White;
+            btnSales.Location = new Point(0, 126);
+            btnSales.Name = "btnSales";
+            btnSales.Size = new Size(116, 42);
+            btnSales.TabIndex = 6;
+            btnSales.Text = "SALES";
+            btnSales.UseVisualStyleBackColor = true;
+            btnSales.Visible = false;
+            btnSales.Click += btnSales_Click;
             // 
             // btnOrders
             // 
@@ -205,23 +221,23 @@
             // 
             panel4.BackColor = Color.White;
             panel4.BorderStyle = BorderStyle.FixedSingle;
-            panel4.Controls.Add(label7);
+            panel4.Controls.Add(lblSales);
             panel4.Controls.Add(label6);
             panel4.Location = new Point(487, 133);
             panel4.Name = "panel4";
             panel4.Size = new Size(180, 130);
             panel4.TabIndex = 2;
             // 
-            // label7
+            // lblSales
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.Black;
-            label7.Location = new Point(65, 55);
-            label7.Name = "label7";
-            label7.Size = new Size(62, 25);
-            label7.TabIndex = 2;
-            label7.Text = "₱0.00";
+            lblSales.AutoSize = true;
+            lblSales.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSales.ForeColor = Color.Black;
+            lblSales.Location = new Point(65, 55);
+            lblSales.Name = "lblSales";
+            lblSales.Size = new Size(62, 25);
+            lblSales.TabIndex = 2;
+            lblSales.Text = "₱0.00";
             // 
             // label6
             // 
@@ -238,23 +254,23 @@
             // 
             panel3.BackColor = Color.White;
             panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(label8);
+            panel3.Controls.Add(lblOrders);
             panel3.Controls.Add(label5);
             panel3.Location = new Point(254, 133);
             panel3.Name = "panel3";
             panel3.Size = new Size(180, 130);
             panel3.TabIndex = 1;
             // 
-            // label8
+            // lblOrders
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.Black;
-            label8.Location = new Point(80, 55);
-            label8.Name = "label8";
-            label8.Size = new Size(23, 25);
-            label8.TabIndex = 3;
-            label8.Text = "0";
+            lblOrders.AutoSize = true;
+            lblOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblOrders.ForeColor = Color.Black;
+            lblOrders.Location = new Point(80, 55);
+            lblOrders.Name = "lblOrders";
+            lblOrders.Size = new Size(23, 25);
+            lblOrders.TabIndex = 3;
+            lblOrders.Text = "0";
             // 
             // label5
             // 
@@ -271,23 +287,23 @@
             // 
             panel2.BackColor = Color.White;
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(label2);
+            panel2.Controls.Add(lblProducts);
             panel2.Controls.Add(label4);
             panel2.Location = new Point(39, 133);
             panel2.Name = "panel2";
             panel2.Size = new Size(180, 130);
             panel2.TabIndex = 0;
             // 
-            // label2
+            // lblProducts
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.Black;
-            label2.Location = new Point(84, 55);
-            label2.Name = "label2";
-            label2.Size = new Size(23, 25);
-            label2.TabIndex = 1;
-            label2.Text = "0";
+            lblProducts.AutoSize = true;
+            lblProducts.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblProducts.ForeColor = Color.Black;
+            lblProducts.Location = new Point(84, 55);
+            lblProducts.Name = "lblProducts";
+            lblProducts.Size = new Size(23, 25);
+            lblProducts.TabIndex = 1;
+            lblProducts.Text = "0";
             // 
             // label4
             // 
@@ -344,22 +360,6 @@
             label3.TabIndex = 6;
             label3.Text = "Coffee Shop Administrator";
             // 
-            // btnSales
-            // 
-            btnSales.Dock = DockStyle.Top;
-            btnSales.FlatAppearance.BorderSize = 0;
-            btnSales.FlatStyle = FlatStyle.System;
-            btnSales.Font = new Font("Bahnschrift", 12F, FontStyle.Bold);
-            btnSales.ForeColor = Color.White;
-            btnSales.Location = new Point(0, 126);
-            btnSales.Name = "btnSales";
-            btnSales.Size = new Size(116, 42);
-            btnSales.TabIndex = 6;
-            btnSales.Text = "SALES";
-            btnSales.UseVisualStyleBackColor = true;
-            btnSales.Visible = false;
-            btnSales.Click += btnSales_Click;
-            // 
             // AdminPanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -410,9 +410,9 @@
         private Label label4;
         private Panel panel3;
         private Label label5;
-        private Label label7;
-        private Label label8;
-        private Label label2;
+        private Label lblSales;
+        private Label lblOrders;
+        private Label lblProducts;
         private Label label9;
         private Button btnLogout;
         private Button btnSales;

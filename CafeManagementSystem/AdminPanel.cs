@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Http;
+using Newtonsoft.Json.Linq;
 
 namespace CafeManagementSystem
 {
@@ -15,6 +17,7 @@ namespace CafeManagementSystem
         public AdminPanel()
         {
             InitializeComponent();
+            LoadDashboard();
         }
 
         private void btnProducts_Click(object sender, EventArgs e)
@@ -65,6 +68,24 @@ namespace CafeManagementSystem
             AdminPanel dashboard = new AdminPanel();
             dashboard.Show();
             this.Hide();
+        }
+
+        private async void LoadDashboard()
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                string response = await client.GetStringAsync(
+                    "http://localhost/coffee-api/dashboard.php"
+                );
+
+                JObject data = JObject.Parse(response);
+
+                lblProducts.Text = data["total_products"].ToString();
+                lblOrders.Text = data["total_orders"].ToString();
+
+                decimal sales = Convert.ToDecimal(data["total_sales"]);
+                lblSales.Text = "₱" + sales.ToString("N2");
+            }
         }
     }
 }
