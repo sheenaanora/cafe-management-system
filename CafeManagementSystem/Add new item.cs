@@ -239,28 +239,47 @@ namespace CafeManagementSystem
             picProduct.Image = null;
         }
 
+        private bool apiWarningShown = false;
+
         private async void LoadProducts()
         {
             dgvProducts.Rows.Clear();
 
-            using (HttpClient client = new HttpClient())
+            try
             {
-                string json = await client.GetStringAsync(
-                    "http://127.0.0.1:8001/products.php"
-                );
-
-                List<Product> products =
-                    JsonConvert.DeserializeObject<List<Product>>(json);
-
-                productList = products;
-
-                foreach (Product product in products)
+                using (HttpClient client = new HttpClient())
                 {
-                    dgvProducts.Rows.Add(
-                        product.coffee_name,
-                        product.description,
-                        product.price,
-                        product.category
+                    string json = await client.GetStringAsync(
+                        "http://127.0.0.1:8001/products.php"
+                    );
+
+                    List<Product> products = JsonConvert.DeserializeObject<List<Product>>(json);
+
+                    foreach (Product product in products)
+                    {
+                        dgvProducts.Rows.Add(
+                            product.id,
+                            product.coffee_name,
+                            product.description,
+                            product.price,
+                            product.category
+                        );
+                    }
+                }
+            }
+            catch
+            {
+                dgvProducts.Rows.Clear();
+
+                if (!apiWarningShown)
+                {
+                    apiWarningShown = true;
+
+                    MessageBox.Show(
+                        "API Server is Offline.\nNo product data loaded.",
+                        "Connection Warning",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
                     );
                 }
             }
